@@ -15,4 +15,8 @@ The function of this subsystem is to take the data from the wireless communicati
 
 ## Buildable Schematic
 
+
+## Analysis
+
+
 ## Sources
