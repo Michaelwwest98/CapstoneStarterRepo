@@ -10,7 +10,8 @@ The function of this subsystem is to take the data from the wireless communicati
 |-------------|------------|--------|
 | Display triage results | Must display whether victim is in Expectant, Immediate, or Delayed category | From START Method |
 | Display heartbeat data | Should display victim’s heartbeat in beats per minute | From Conceptual Design, from Heartbeat/Respiratory System section |
-| Display respiratory data | Must not display flashing lights in such a fashion that will cause epileptic seizures in those prone to them | |
+| Display respiratory data | Should display victim’s breath rate in breaths per minute | From Conceptual Design, from Heartbeat/Respiratory System section |
+| Avoiding epileptic seizures | Must not display flashing lights in such a fashion that will cause epileptic seizures in those prone to them |  |
 
 ## Buildable Schematic
 
