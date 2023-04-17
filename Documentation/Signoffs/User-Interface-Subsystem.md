@@ -26,4 +26,5 @@ Pictured above is the buildable schematic for the UI for the website or other pr
 
 ## Sources
 [1] “Start adult triage algorithm,” CHEMM. [Online]. Available: https://chemm.hhs.gov/startadult.htm. [Accessed: 14-Feb-2023].
+
 [2] “Squarespace pricing - all pricing plans,” Squarespace. [Online]. Available: https://www.squarespace.com/pricing. [Accessed: 16-Apr-2023]. 
