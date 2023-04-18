@@ -63,12 +63,7 @@ The purpose of this subsystem is to detect an individual's responsiveness or cog
 
 
 
-<p id="gdcalert1" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image1.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert2">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image1.png "image_tooltip")
-
-
+![image](https://user-images.githubusercontent.com/79685126/232679463-ca3feb77-b117-4788-bd41-5348d94c44b6.png)
 Figure1. Wire Diagram for the total subsystem
 
 **Analysis:**
