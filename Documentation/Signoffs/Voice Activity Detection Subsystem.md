@@ -86,4 +86,4 @@ The Gikfun speaker datasheet puts the output gain limit at 80 dB which is greate
 
 * ML1-WS ETS Microphone - $42.00
 * Anber-Tech Analog to Digital Audio Converter- $16.99
-* Gikfun EK1725 2”4 Ohm 3 W Full Range Audio Speaker - $9.68
+* Gikfun EK1725 2”4 Ohm 3 W Full Range Audio Speaker - $9.69
