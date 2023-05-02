@@ -63,7 +63,7 @@ The purpose of this subsystem is to detect an individual's responsiveness or cog
 
 
 
-![image](https://user-images.githubusercontent.com/79685126/232820680-0d61b79c-8e69-463a-be55-b531596953d0.png)
+![image](https://user-images.githubusercontent.com/79685126/235611053-69878c8b-1b4f-4cb6-9a22-76f6e17996e6.png)
 
 
 Figure1. Wire Diagram for the total subsystem
