@@ -14,7 +14,7 @@ Since DARPA does not specifiy a minimum distance that the drone can be away from
 
 ## Schematic- 
 
-
+![Screenshot 2023-05-03 222004](https://user-images.githubusercontent.com/123600489/236105680-18fe1a00-2edc-47a8-8966-215766c40f65.jpg)
 
 | RAK811 LoRa Breakout Board PINOUT |---|
 |-----------------------------------|---|
@@ -53,5 +53,5 @@ Since DARPA does not specifiy a minimum distance that the drone can be away from
 |--------------|-------------|-------------|--------------|----------|-------|-------|
 | LPWAN Breakout Module  | LoRa Transceiver Module with Antenna | RAK811 | RAK | 2 | $15.00 | $30.00 |
 | (FTDI) USB to UART Converter | USB to UART Converter | Cytron | UC00A | 1 | $10.25 | $10.25 |
-| Laptop | Laptop will be provided by team members | | 1 | $0 | $0 |
+| Laptop | Laptop will be provided by team members | | | 1 | $0 | $0 |
 | Total |  |  |  |  |  | $40.25 |
