@@ -16,15 +16,12 @@ The function of this subsystem is to take the data from the wireless communicati
 ![UI_Schematic_1](https://user-images.githubusercontent.com/123419455/232373698-02f55d76-d05c-44ac-aec9-f2af683e1fef.jpg)
 
 ## Analysis
-Pictured above is the buildable schematic for the UI for the website or other program that will show the user the output data from the algorithm. The main output will be the sorting status of the victim, whether they are Expectant, Immediate, or Delayed as described in the START Method [1]. Two less prominent outputs for the UI would be the measured heartbeat in beats per minute (bpm) and the measured respiratory rate in breaths per minute (bpm). Also shown in the buildable schematic is the wireless connection to the algorithm. Further detail on this wireless connection is featured on the Wireless Communication Subsystem signoff file. One service that may be used to create such a website could be Squarespace [2].
+Pictured above is the buildable schematic for the UI for the website or other program that will show the user the output data from the algorithm. The main input will be the necessary data from the Computing Subsystem sent via the Wireless Communication Subsystem to output the following onto the screen: the sorting status of the victim, whether they are Expectant, Immediate, or Delayed as described in the START Method [1]. Two less prominent outputs for the UI would be the measured heartbeat in beats per minute (bpm) and the measured respiratory rate in breaths per minute (bpm). Also shown in the buildable schematic is the wireless connection to the algorithm. Further detail on this wireless connection is featured on the Wireless Communication Subsystem signoff file. The website can be built with HTML.
 
 ## BOM
-| Product | Price |
-|---------|------|
-| Squarespace Personal Website | $23 per month for one semester (4 months) [2]|
-| Total: | $92 |
+| Name of item | Description | Part Number | Manufacturer | Quantity | Price | Total |
+|--------------|-------------|-------------|--------------|----------|-------|-------|
+|Total |  |  |  |  |  | $0 |
 
 ## Sources
 [1] “Start adult triage algorithm,” CHEMM. [Online]. Available: https://chemm.hhs.gov/startadult.htm. [Accessed: 14-Feb-2023].
-
-[2] “Squarespace pricing - all pricing plans,” Squarespace. [Online]. Available: https://www.squarespace.com/pricing. [Accessed: 16-Apr-2023]. 
