@@ -9,12 +9,13 @@ The function of the wireless communication subsystem is to wirelessly transport 
 | 1. The maximum distance the sensing system can be away from the command center is 9 kilometers | Analyzed from DARPA's constraints |
 | 2. The system shall send results from the computing subsystem to user interface subsystem at a maximum time of two seconds | Analyzed from DARPA's constraints |
 | 3. The entire system shall weigh less than six pounds| From conceptual design |
+| 4. Unlicensed devices that operate in the 915 MHz band allow for a maximum power output of up to 30 dBm or 1 Watt | From Federal Communications Commission (FCC) |
 
-Since DARPA does not specifiy a minimum distance that the drone can be away from the command center, a value had to be calculated to determine this distance. This calculation was found by analyzing the drone chosen to hold the entire sensing system from the conceptual design. Assuming the drone holds the max payload of six pounds, the drone has a battery life of approximately thirty minutes. The max speed of the drone while carryign the max payload of six pounds asw well as some consideration for wind resistance is approximately ten meters-per-second. In this calculation, it will be assumed that the drone will cover a circular area with the command center of the drone being at the center of the circle. The maximum distance the drone can travel with a maximum payload and a speed of ten meters-per-second while also being able to return to the command center with one charge of the battery is nine kilometers.
+Since DARPA does not specifiy a minimum distance that the drone can be away from the command center, a value had to be calculated to determine this distance. This calculation was found by analyzing the drone chosen to hold the entire sensing system from the conceptual design. Assuming the drone holds the max payload of six pounds, the drone has a battery life of approximately thirty minutes. The max speed of the drone while carryign the max payload of six pounds as well as some consideration for wind resistance is approximately ten meters-per-second. In this calculation, it will be assumed that the drone will cover a circular area with the command center of the drone being at the center of the circle. The maximum distance the drone can travel with a maximum payload and a speed of ten meters-per-second while also being able to return to the command center with one charge of the battery is nine kilometers.
 
 ## Schematic- 
 
-![Screenshot 2023-05-03 222004](https://user-images.githubusercontent.com/123600489/236105680-18fe1a00-2edc-47a8-8966-215766c40f65.jpg)
+![Newer Schematic](https://github.com/Michaelwwest98/DARPA-Drone-Triage-Sensing-System/assets/123600489/93efebfa-8629-47f7-8946-5c98d0226c97)
 
 | RAK811 LoRa Breakout Board PINOUT |---|
 |-----------------------------------|---|
@@ -45,13 +46,15 @@ Since DARPA does not specifiy a minimum distance that the drone can be away from
 
 2. The data that will be sent from the computing system to the user interface will be composed of measurements obtained from the sensing subsystem as well as a simple graphic that displays the START status of a person. This data will most likely hold a data size of at least several kilobytes. The radio frequency module chosen for this project has an average data rate of 300 kbps. Using this radio frequency module with an average data rate of 300 kbps,  the data from the computing subsystem will be able to reach the user interface subsystem within the two second minimum time frame specified in the constraints.
 
-3. After choosing a specific drone and calculating the allotted weight that the team has, the entire sensing system as a whole must weigh less than six pounds. The weight of the NRF24L01+PA+LNA radio frequency module including the antenna that will be attached to the sensing system weighs approximately 16 grams or 0.035274 pounds. This light weight load of this component will have little affect on the overall weight of the system.
+3. After choosing a specific drone and calculating the allotted weight that the team has, the entire sensing system as a whole must weigh less than six pounds. The weight of the RAK811 LPWAN breakout module the RAKDAP1 debug and flash tool that will be attached to the sensing system weighs approximately 24.4 grams or 0.0538 pounds. This light weight load of this component will have little affect on the overall weight of the system.
+
+4. The RAK811 Breakout Board operates in the 915 Mhz band and the maximum power output that the RAK811 Breakout Board is 100mW or 20 dBm, which falls below the safety standard set by the FCC concerning maximum power output of an unlicensed device operating in the 915 MHz frequency band.
 
 ## BOM-
 
 | Name of item | Description | Part Number | Manufacturer | Quantity | Price | Total |
 |--------------|-------------|-------------|--------------|----------|-------|-------|
-| LPWAN Breakout Module  | LoRa Transceiver Module with Antenna | RAK811 | RAK | 2 | $15.00 | $30.00 |
-| (FTDI) USB to UART Converter | USB to UART Converter | Cytron | UC00A | 1 | $10.25 | $10.25 |
+| RAK811 LPWAN Breakout Module  | LoRa Transceiver Module with Antenna | 316000 | RAK | 2 | $15.00 | $30.00 |
+| RAKDAP1 | Debug and flash tool | 910009 | RAK | 2 | $10.00 | $20.00 |
 | Laptop | Laptop will be provided by team members | | | 1 | $0 | $0 |
-| Total |  |  |  |  |  | $40.25 |
+| Total |  |  |  |  |  | $50.00 |
