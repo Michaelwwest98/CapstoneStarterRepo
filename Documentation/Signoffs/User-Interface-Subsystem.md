@@ -21,6 +21,7 @@ Pictured above is the buildable schematic for the UI for the program that will s
 ## BOM
 | Name of item | Description | Part Number | Manufacturer | Quantity | Price | Total |
 |--------------|-------------|-------------|--------------|----------|-------|-------|
+| Laptop | Our laptops shall run the program | N/A | N/A | 1 | $0 | $0 |
 |Total |  |  |  |  |  | $0 |
 
 ## Sources
