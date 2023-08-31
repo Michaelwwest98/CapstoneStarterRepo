@@ -12,7 +12,8 @@ This subsystem is responsible for powering all necessary devices that are presen
 | Powering the Jetson Nano | The Jetson Nano requires a power supply of 5 V and maximum of 4.4 A continuous via a 2.1 mm DC barrel jack. The Jetson Nano has a maximum voltage rating of 5.5 V and a maximum current rating of 5 A | This constraint originates from the computing subsystem required for data processing and to operate the on-board sensors. The specifications come from the Jetson Nano datasheets [2][3] |
 
 ## Buildable Schematic
-![Power_Subsystem_Schematic](https://user-images.githubusercontent.com/123699820/232390707-38ce0e9c-4d03-48a6-b87e-5cde5ba63efa.png)
+![Power system schematic](https://github.com/Michaelwwest98/DARPA-Drone-Triage-Sensing-System/assets/123699820/b435bc2b-0d03-4045-8ccc-d72a8b609576)
+
 
 ## Analysis
 - The system must operate at full functionality for 15 to 60 minutes. The NP-F750 7.4 V 5600 mAh is estimated to power the Jetson Nano with a 4 A draw for approximatley one and a half hour which overshoots our constraint in a good way because the 15 to 60 minute run-time comes from Darpa and their testing simulations for the challenge, so it is better that our system operate for a longer duration. The sensors will use the power connections on the Jetson. The power consumption will have to be tested as the load is increased on the Jetson. Also, the team expects efficiency losses with the coupling of the battery and the buck converter/regulator.
@@ -25,19 +26,21 @@ This subsystem is responsible for powering all necessary devices that are presen
 |---------|----------|-------|
 | [2 Pack] DC-DC 5A Buck Converter 4-38V to 1.25-36V Step-Down Voltage Regulator High Power Module with LED Display | 1 | $13.99 |
 | SmallRig NP-F Battery Adapter Plate Lite for Sony NP-F Battery, w/ 12V/7.4V Output Port, LED Low Battery Indicator - 3018 | 1 | $26.90 |
+| CENTROPOWER 20 Pcs DC Power Cable 5A 12v DC Power Plug Cord Male Connectors 2.1mm x 5.5mm | 1 | $9.59 |
 | Neewer NP-F750 2-Pack 5600mAh Li-ion Replacement Battery with USB Charger, Compatible with Sony NP-F550 570 750 770 930 950 FM55H FM500H QM71 QM91 QM71D LED Light, Monitor, Motorized Slider | 1 | $50.01 |
-| Total | | $90.90 |
+| Total | | $100.49 |
 
 ## Sources
 [1] DARPA Triage Challenge. Available: https://triagechallenge.darpa.mil/.
 
-[2] *Jetson Nano System-On Module Data Sheet*, NVIDIA, 2023. [Online]. Available: https://developer.download.nvidia.com/assets/embedded/secure/jetson/Nano/docs/JetsonNano_DataSheet_DS09366001v1.1.pdf?REUknfGz7IfV10-RdLQ98cHFQPpAdXr5VttLj0_tGdkvv42sXgadgKgZv27MCiRYODp_kan6OE2griI6iYqHedWU1sgatpyV_p-SF92JrLsEBBM1hc_9oL1lUGmf0Ez_LmEij8ieNlFXGno2qpo0KL1G5Ta7U-OwkOzp5u770tMk3Svs4rERrSNsRIp0jA==&t=eyJscyI6ImdzZW8iLCJsc2QiOiJodHRwczovL3d3dy5nb29nbGUuY29tLyJ9
-
+[2] *Jetson Nano System-On Module Data Sheet*, NVIDIA, 2023. [Online]. Available: https://developer.download.nvidia.com/assets/embedded/secure/jetson/Nano/docs/JetsonNano_DataSheet_DS09366001v1.1.pdf?8eLmRr66qsksQXJ_jT0pYHP2nzXMwKkh8h9m4JFe71uQOMU6SlIKShEZEleOVIjLwHWbyeVYiWHL-CmATBrjWUmjz5shYbX3cMNRDZ5k1hQnDP41gFKH2lev54vQkSGbEfGR_aS_mAZMddBUAf4YUo4TDJTGolayv0I9WcmbHspkpz870pOBqNT19hApnA==&t=eyJscyI6IndlYnNpdGUiLCJsc2QiOiJkZXZlbG9wZXIubnZpZGlhLmNvbS9yZXN0cmljdGVkP2ZpbGVuYW1lPTQwMy5odG1sIn0=
 [3] *Jetson Nano Develover Kit*, NVIDIA, 2020. [Online]. Available: https://developer.download.nvidia.com/assets/embedded/secure/jetson/Nano/docs/NV_Jetson_Nano_Developer_Kit_User_Guide.pdf?EJsH8ZYNz5pFvY3xfek_t8S719_1OlL2HyyEdrbWH7Cs4dW7W_T72B_ntKtwV55xuzUiQb5NFF1rIVcbmF7HqZH-PTEjKzl4Exc_hivvbH0cS7lEQrrqC8DaXltt33Db7GIt-2NOzTPLX7rsDxql2Vio-GiaGfss_qKMzmh3_SCBDiF2DB-_BsDl9ecCGWxQUxI=&t=eyJscyI6ImdzZW8iLCJsc2QiOiJodHRwczovL3d3dy5nb29nbGUuY29tLyJ9
 
 [4] *[2 Pack] DC-DC 5A Buck Converter 4-38V to 1.25-36V Step-Down Voltage Regulator High Power Module with LED Display*, Amazon. Available: https://www.amazon.com/dp/B085T73CSD?ascsubtag=amzn1.ideas.2WYYMHDV0VVNZ&linkCode=sl1&tag=jetsonhacks-20&linkId=18cbbd2d9accf7610e8f6b65517ac8b5&language=en_US&ref_=as_li_ss_tl
 
 [5] *SmallRig NP-F Battery Adapter Plate Lite for Sony NP-F Battery, w/ 12V/7.4V Output Port, LED Low Battery Indicator - 3018*, Amazon. Available: https://www.amazon.com/dp/B091TRMFYT?ascsubtag=amzn1.ideas.2WYYMHDV0VVNZ&linkCode=sl1&tag=jetsonhacks-20&linkId=3a4257f3f9f547ba799ddbcec22977d9&language=en_US&ref_=as_li_ss_tl
 
-[6] *Neewer NP-F750 2-Pack 5600mAh Li-ion Replacement Battery with USB Charger, Compatible with Sony NP-F550 570 750 770 930 950 FM55H FM500H QM71 QM91 QM71D LED Light, Monitor, Motorized Slider*, Amazon. Available: https://www.amazon.com/dp/B08LDL4QSD?ascsubtag=amzn1.ideas.2WYYMHDV0VVNZ&linkCode=sl1&tag=jetsonhacks-20&linkId=f1adce182e2bbb87e54502f4667b7a19&language=en_US&ref_=as_li_ss_tl
+[6] *CENTROPOWER 20 Pcs DC Power Cable 5A 12v DC Power Plug Cord Male Connectors 2.1mm x 5.5mm, DC Pigtail Adapter Plug Socket Wire?for CCTV Security Camer*, Amazon. Available: https://www.amazon.com/dp/B0BTHSDF4S/ref=sspa_dk_detail_3?psc=1&pd_rd_i=B0BTHSDF4S&pd_rd_w=1OS6v&content-id=amzn1.sym.08ba9b95-1385-44b0-b652-c46acdff309c&pf_rd_p=08ba9b95-1385-44b0-b652-c46acdff309c&pf_rd_r=B74W16YJ43CMEFKHPWKW&pd_rd_wg=M4xV8&pd_rd_r=78ab97fe-0ffb-402f-b35f-0bdd04872f7e&s=industrial&sp_csd=d2lkZ2V0TmFtZT1zcF9kZXRhaWxfdGhlbWF0aWM#customerReviews
+
+[7] *Neewer NP-F750 2-Pack 5600mAh Li-ion Replacement Battery with USB Charger, Compatible with Sony NP-F550 570 750 770 930 950 FM55H FM500H QM71 QM91 QM71D LED Light, Monitor, Motorized Slider*, Amazon. Available: https://www.amazon.com/dp/B08LDL4QSD?ascsubtag=amzn1.ideas.2WYYMHDV0VVNZ&linkCode=sl1&tag=jetsonhacks-20&linkId=f1adce182e2bbb87e54502f4667b7a19&language=en_US&ref_=as_li_ss_tl
 
