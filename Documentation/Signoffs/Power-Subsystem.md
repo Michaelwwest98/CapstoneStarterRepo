@@ -12,7 +12,7 @@ This subsystem is responsible for powering all necessary devices that are presen
 | Powering the Jetson Nano | The Jetson Nano requires a power supply capable of delivering 5V/2A and must maintain a supply voltage greater than or equal to 4.75 V via a 2.1 mm DC barrel jack. The Jetson Nano has a maximum voltage rating of 5.5 V and a maximum current rating of 5 A | This constraint originates from the computing subsystem required for data processing and to operate the on-board sensors. The specifications come from the Jetson Nano datasheets and NVIDIA forums [2][3][4] |
 
 ## Buildable Schematic
-![Power system schematic](https://github.com/Michaelwwest98/DARPA-Drone-Triage-Sensing-System/assets/123699820/b435bc2b-0d03-4045-8ccc-d72a8b609576)
+![Power system schematic](https://github.com/Michaelwwest98/DARPA-Drone-Triage-Sensing-System/assets/123699820/c391588f-195b-403e-a3a3-9f4f8c9ef64f)
 
 
 ## Analysis
