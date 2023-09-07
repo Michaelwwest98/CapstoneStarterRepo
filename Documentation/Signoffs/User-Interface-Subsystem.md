@@ -1,4 +1,4 @@
-# User Interface Subsytem
+# User Interface Subsystem
 
 ## Functionality
 
@@ -13,11 +13,11 @@ The function of this subsystem is to take the data from the wireless communicati
 | Display respiratory data | Shall display victim’s breath rate in breaths per minute | From Conceptual Design, from Heartbeat and Respiratory Subsystem section |
 
 ## Block Diagram
-![UI_Block_Diagram_1](https://github.com/Michaelwwest98/DARPA-Drone-Triage-Sensing-System/blob/c01d37b4b3411fdee7e8b374565dae70bb3d7495/Documentation/Images/UI_Block_Diagram_1.pdf)
+![UI_Block_Diagram_1](https://github.com/Michaelwwest98/DARPA-Drone-Triage-Sensing-System/blob/cc92902a6190693c7c66fbc01ece6b466e08f3d2/Documentation/Images/UI_Block_Diagram_1.JPG))
 
 
 ## Analysis
-Pictured above is the block diagram for the UI for the program that will show the user the output data from the algorithm. The data will be shown to the user via a Python script that creates an intuitive table of the relevant data [2]. The main result will be the necessary data from the Computing Subsystem sent via the Wireless Communication Subsystem to output the following onto the screen: the sorting status of the victim, whether they are Expectant, Immediate, or Delayed as described in the START Method [1]. Secondarily, the two less prominent outputs for the UI would be the measured heartbeat in beats per minute (bpm) and the measured respiratory rate in breaths per minute (bpm) from the Heartbeat and Respiratory Sensing Subsystem or from the Computing Subsystem. Whichever origin for this data is more convenient for the Python program shall be used. The specific computer used will similarly be incidental, as the input from the Wireless Communication Subsystem is flexible as described in more detail in its respective signoff.
+Pictured above is the block diagram for the UI for the program that will show the user the output data from the algorithm. The data will be shown to the user via a Python script that creates an intuitive table of the relevant data listed in the Specs and Constraints [2]. The main result will be the necessary data from the Computing Subsystem sent via the Wireless Communication Subsystem to output the victim's triage result onto the screen: the sorting status of the victim, whether they are Expectant, Immediate, or Delayed as described in the START Method [1]. This data will be taken through the Wireless Communication Subsystem from the Computing Subsystem in the Jetson Nano, as described in the Computing Subsystem and Wireless Communication Subsystem signoffs. Secondarily, the two less prominent outputs for the UI would be the measured heartbeat in beats per minute (bpm) and the measured respiratory rate in breaths per minute (bpm) from the Computing Subsystem. This data will be taken from the Jetson Nano instead of being taken directly from the radar, as the Jetson Nano will be the device directly connected to the computer running the UI Subsystem Python program. The specific computer used for the UI Subsystem Python program will be incidental, as the input from the Wireless Communication Subsystem is connected via USB as described in more detail in the Wireless Communication Subsystem signoff. The triage result as well as the secondary data will be static data. The triage result will be shown as a static result because it is a final result. An average respiratory rate and heartbeat will show the user whether each respective rate is normal, too high, or too low. This will allow the user to gain a decent understanding of why the victim is given their specific triage result.
 
 ## BOM
 | Name of item | Description | Part Number | Manufacturer | Quantity | Price | Total |
