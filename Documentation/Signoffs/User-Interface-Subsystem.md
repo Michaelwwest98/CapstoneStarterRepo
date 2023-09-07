@@ -13,7 +13,7 @@ The function of this subsystem is to take the data from the wireless communicati
 | Display respiratory data | Shall display victim’s breath rate in breaths per minute | From Conceptual Design, from Heartbeat and Respiratory Subsystem section |
 
 ## Block Diagram
-![UI_Block_Diagram_1](https://github.com/Michaelwwest98/DARPA-Drone-Triage-Sensing-System/blob/cc92902a6190693c7c66fbc01ece6b466e08f3d2/Documentation/Images/UI_Block_Diagram_1.JPG))
+![UI_Block_Diagram_1](https://github.com/Michaelwwest98/DARPA-Drone-Triage-Sensing-System/blob/cc92902a6190693c7c66fbc01ece6b466e08f3d2/Documentation/Images/UI_Block_Diagram_1.JPG)
 
 
 ## Analysis
