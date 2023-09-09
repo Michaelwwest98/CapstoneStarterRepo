@@ -10,6 +10,8 @@ The function of the wireless communication subsystem is to wirelessly transport 
 | 2. The system shall send results from the computing subsystem to user interface subsystem at a maximum time of two seconds | Analyzed from DARPA's constraints |
 | 3. The entire system shall weigh less than six pounds| From conceptual design |
 | 4. Unlicensed devices that operate in the 915 MHz band allow for a maximum power output of up to 30 dBm or 1 Watt | From Federal Communications Commission (FCC) |
+| 5. The bandwidth of the device must be 125 kHz or 500 kHz | From further analysis of the subsystem |
+| 6. The system must be able to transmit at least 30 bits of data | From further analysis of the subsystem |
 
 Since DARPA does not specifiy a minimum distance that the drone can be away from the command center, a value had to be calculated to determine this distance. This calculation was found by analyzing the drone chosen to hold the entire sensing system from the conceptual design. Assuming the drone holds the max payload of six pounds, the drone has a battery life of approximately thirty minutes. The max speed of the drone while carryign the max payload of six pounds as well as some consideration for wind resistance is approximately ten meters-per-second. In this calculation, it will be assumed that the drone will cover a circular area with the command center of the drone being at the center of the circle. The maximum distance the drone can travel with a maximum payload and a speed of ten meters-per-second while also being able to return to the command center with one charge of the battery is nine kilometers.
 
@@ -49,6 +51,10 @@ Since DARPA does not specifiy a minimum distance that the drone can be away from
 3. After choosing a specific drone and calculating the allotted weight that the team has, the entire sensing system as a whole must weigh less than six pounds. The weight of the RAK811 LPWAN breakout module the RAKDAP1 debug and flash tool that will be attached to the sensing system weighs approximately 24.4 grams or 0.0538 pounds. This light weight load of this component will have little affect on the overall weight of the system.
 
 4. The RAK811 Breakout Board operates in the 915 Mhz band and the maximum power output that the RAK811 Breakout Board is 100mW or 20 dBm, which falls below the safety standard set by the FCC concerning maximum power output of an unlicensed device operating in the 915 MHz frequency band.
+
+5. The RAK811 Breakout board as previously stated, must operate in the 915 MHz band which is the frequency band for United States. This means the bandwidth that is required for the device is either 125 kHz or 500 kHz. On the RAK811 data sheet, it does not specify a specific bandwidth that the device possesses. All that is stated on the data sheet is that the RAK811 Breakout Board supports US915 or the 915 MHz frequency band that the United States typically uses. This means that the RAK811 Breakout Board will be able to fulfill the required bandwidth of 125 kHz or 500 kHz.
+
+6. The RAK811 Breakout Board will be sending data to and from the computing subsystem to the user interface subsystem. The size of data that will be sent from the computing subsystem to the user interface subsystem and back will approximately be around 30 bits. The max amount of data that the RAK811 Breakout board can send is 242 bytes, which is far more than the amount of data that is currently being planned to transmit between the computing subsystem and the user interface subsystem.
 
 ## BOM-
 
