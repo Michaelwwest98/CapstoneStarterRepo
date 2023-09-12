@@ -13,6 +13,7 @@ The function of this subsystem is primarily to display the triage result in an i
 | Display respiratory data | Shall display victim’s breath rate in breaths per minute | From Conceptual Design, from Heartbeat and Respiratory Subsystem section |
 | Weight | 	The entire system must weigh less than 6 pounds, this subsystem should weigh 1.5 lbs or less | From DARPA constraints, from Conceptual design |
 | Speed | The system must provide triage results in less than 1 minute | From DARPA constraints |
+| On and Off Input | The system must have a way to turn off | NFPA 70 National Electric Code |
 
 ## Block Diagram
 ![UI_Block_Diagram_1](https://github.com/Michaelwwest98/DARPA-Drone-Triage-Sensing-System/blob/Michaelwwest98-ui-subsystem-signoff/Documentation/Images/UI_Block_Diagram_1.JPG)
@@ -34,6 +35,9 @@ Since no part of this subsystem will be a physical component connected to the dr
 
 ### Speed of the System
 According to the programmers behind Python, the current version is approximately 64% faster than the previous version of Python, which would run code in about 48.03 seconds [3]. Applying that approximate percentage to the runtime of the previous version to find the runtime of the current version of Python, means that using the current version of Python, version 3.11, any code written for it should run in approximately 17.29 seconds. Future versions of Python are also currently being developed to run faster than that.
+
+### On and Off Input
+According to the NEC, any safe electrical system should have an input to turn the system off. Within the Python code, there will be a way for users to input a command to turn the system off. 
 
 ## BOM
 | Name of item | Description | Part Number | Manufacturer | Quantity | Price | Total |
