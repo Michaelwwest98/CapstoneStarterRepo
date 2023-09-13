@@ -11,7 +11,7 @@ Eventually, to be integrated with a drone, this computing subsystem showcases ad
 | Compliance with laws | 	Must not store any audio recordings of victims in distress | Two party consent laws |
 | Weight | must weigh below 2.8 lbs | DARPA[1] |
 ## Jetson Nano Wiring Diagram
-![wiring schematic](https://github.com/Michaelwwest98/DARPA-Drone-Triage-Sensing-System/assets/60167425/20adea59-51c2-4bd7-baf6-6682b3ea8903)
+![wiring 2 0](https://github.com/Michaelwwest98/DARPA-Drone-Triage-Sensing-System/assets/60167425/a338061a-f107-4e52-926d-a2150ad1e136)
 ## Triage Program Flowchart
 ![flow diagram](https://github.com/Michaelwwest98/DARPA-Drone-Triage-Sensing-System/assets/60167425/25671318-2959-4bcb-9cc9-0d8db281cdc6)
 ## Analysis
