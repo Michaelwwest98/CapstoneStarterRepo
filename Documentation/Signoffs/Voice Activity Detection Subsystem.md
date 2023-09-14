@@ -4,67 +4,20 @@
 
 The purpose of this subsystem is to detect an individual's responsiveness or cognition through the use of call and response techniques. The subsystem will activate once an individual heartbeat has been detected. The speaker will play a sound with an instruction to say something. Once the instruction is given, the microphone will begin transmitting audio to a computing system which will then run an algorithm to detect if a human voice responded or not allowing the total system to know if the individual being tested has cognition or not.
 
-## Specs and Constraints:			
+
+## Specs and Constraints			
 
 
-<table>
-  <tr>
-   <td>Description
-   </td>
-   <td>Constraint
-   </td>
-   <td>Source of Constraint
-   </td>
-  </tr>
-  <tr>
-   <td>Microphone
-   </td>
-   <td>Must sense frequencies from 100 Hz to 3000 Hz
-   </td>
-   <td>Frequency range of average man is 100-900 Hz while female is 300 - 3000 Hz.[1]
-   </td>
-  </tr>
-  <tr>
-   <td>Microphone
-   </td>
-   <td>Must sense a minimum decibel gain value of 30 dB.
-   </td>
-   <td>Volume level of a human whisper. Helps to detect those who can barely speak.[2]
-   </td>
-  
-  </tr>
-  <tr>
-   <td>Speaker
-   </td>
-   <td>Must play sound clips between 20 Hz- 20000 Hz 
-   </td>
-   <td>Frequency range an individual’s ear can hear [1]
-   </td>
-     <tr>
-   <td>Microphone/Speaker
-   </td>
-   <td> The B0B-19389 and COM-18343 must function at a minimum distance of 1 meter.
-   </td>
-   <td>Constraint set by the overall system to be contactless
-   </td>
-  </tr>
-  <tr>
-   <td>Weight
-   </td>
-   <td>The drone specified in conceptual design had a max load of 2.7 kg. Seeing as 4 subsystems will be attached to the drone. The max weight must not exceed 675g.
-   </td>
-   <td>From DARPA constraints/ Conceptual design
-   </td>
-  </tr>
-  <tr>
-   <td>Safety
-   </td>
-   <td>Speaker output must not be louder than 120 dB
-   </td>
-   <td>Levels at 120 dB can cause immediate harm to an individual's hearing [2]
-   </td>
-  </tr>
-</table>
+| Description | Constraint | Source of Constraint |
+|-------------|------------|----------------------|
+| (1) VAD System | Must detect the presence of a human voice from auddio signal | Functionality of subsytem with respect to triage algorithm |
+| (2) Microphone | Must pick up a minimum sound pressure level of 30 dB SPL from at least 1 meter away | Volume level of a human whisper. [2] DARPA distance constraint |
+| (3) Microphone | Must sense frequencies from 100 Hz to 3000 Hz | Frequency range of average man is 100-900 Hz while female is 300 - 3000 Hz.[1] |
+| (4) Speaker | Must output sound at a volume heard from at least 1 meter away | Individual can hear sound from the speaker |
+| (5) Speaker | Must play sound clips between 20 Hz- 20000 Hz | Frequency range an individual’s ear can hear [1] |
+| (6) Distance | Must function with noise from drone from at least 1 meter away | From DARPA constraints |
+| (7) Weight | he drone specified in conceptual design had a max load of 2.7 kg. Seeing as 4 subsystems will be attached to the drone. The max weight must not exceed 675g. | From DARPA constraints/ Conceptual design |
+| (8) Safety | Speaker output must not be louder than 120 dB | Levels at 120 dB can cause immediate harm to an individual's hearing [2] |  
 
 
 ## Wiring Schematics
@@ -77,6 +30,8 @@ The purpose of this subsystem is to detect an individual's responsiveness or cog
 Figure1. Wire Diagram for the total subsystem
 
 ## Analysis:
+
+(1)
 
 The algorithm will function by sending out a verbal message from the speaker and listening for a response from a human voice. The presence of a human voice adds energy to a signal at specific frequences. To find if a human voice is present the task of the system is to look at the energy levels of the signal and find where the voice is present. This begins by taking a window of raw data from the microphone of around 30 ms. The data should look similar to the figure below.
 
@@ -98,18 +53,28 @@ Figure taken from [3]
 
 If value is a 1 speech has been detected and value can be sent for further analysis at other subsystems.
 
+(2),(3)
 
-The datasheet of the BOB-19389 states a frequency range at 7 Hz - 36 kHz which includes the threshold set by the constraints to capture human voice frequencies. This microphone will be able to capture the 100-3000 Hz range set by the constraint.
+Sound Pressure Level (SPL) is a way to measure sound intensity compared to human hearing. 0 dB SPL is the minimum a person can hear, while 30 dB SPL is the sound level of a human whisper at a 1 meter distance. The BOB-19389 datasheet states a signal to noise ratio (SNR) of 67 dBV/Pa taken from a 94 dB SPL signal. To calculate the minimum sound level that the microphone can pick up the noise floor level, or the point at which the noise distorts the signal coming in that no signal can be ditected, needs to be found. This is done by simply finding the differnce between the signal used to measure the SNR and the SNR itself. In the case of BOB-19389 this is 94 - 67 which equals 27 dB. This means that from the meter distance the microphone will be able to pick up a human whisper of 30 dB without the signal being distored.      
+The datasheet of the BOB-19389 also states a 3dB rolloff frequency range of 7 Hz - 19 kHz which includes the threshold set by the constraints to capture human voice frequencies. The BOB-19389 will be able to capture the 100-3000 Hz range set by the constraint.
 
-The BOB-19389 datasheet also has a minimum sensitivity of -44 dB which is much more sensitive than the 30 dB needed to capture a human whisper. This meets the constraint set above and will allow the system to capture an individuals cognition even if a faint sound is heard from the human.
+(4),(5)
 
-The COM-18343 speakers are full range and capture all the hard frequencies from 20 Hz - 20kHz set by the constraint above. But more importantly it will be able to produce sound between 2000 Hz through 5000 Hz which is the range most sensitive to the human ear. 
+To see the sound level output of the speaker, the intensity of the speaker must first be calculated. The equation for intensity is I = P / (4 * pi * r) where P is the power of the system and r is the distance from source. The COM-18343 datasheet states the speaker includes 2 X 2 W speakers and the constarint puts the distance at 1 meter. The intensity can then be calculated to be 0.3183 W/m^2. This value can be converted to dB scle using the equation dB = 10 * log (I / Io), where I is intensity calcuted and Io is the threshold intensity for human hearing which is set to 1*10^-12 W/m^2. The total sound level capable of being outpued by the speaker is 115 dB. With the drone noise being around the value of 96 dB, this means the COM-18343 is able to output sound that is louder than the drone noises this system will be attached to.    
+The COM-18343 datasheet also states the speaker is full range and captures all the heard frequencies from 20 Hz - 20kHz set by the constraint above. But more importantly it will be able to produce sound between 2000 Hz through 5000 Hz which is the range most sensitive to the human ear. 
 
-According to [4] for every doubling of distance tthe sound goes down -6dB. With a 1 meter minimum this would allow the BOB-19389 to function up to around 16 meters. The COM-18343 is a 2W speaker which can output around 93dB at max volume. Using the same method as above with a meter distane as minimum value, the speaker should function at a distyance of about 32 meters.
+(6)
+
+The COM-18343 speakers will be able to overcome the noises outside this system such as drone noise, but what about the BOB-19389 microphone? The BOB-19389 is an omnidirectional microphne which is useful to capture sounds that are not necessarily under the microphone, but will also capture other noises such as the drone it is attached to. To solve this issue the casing for this subsystem can create a soundproof barrier for the back of the micrphone eliminating half of the direction sound can be picked up from and making the leakage that does come noise that will not have enough inesity to cause issues for the microphone. The BOB-19389 datasheet also states a max of 134 dB SPL meaning that even if the full sounds are picked up, it will not damage the microphone.
+
+(7)
 
 The total subsystem will consist of two parts. The microphone and speaker. The speakers weight is not specified, but simaliar speakers weig around 200 g, and the microphone, whose weight is also not specficed, has around a weight of 25 g. This brings the total subsystem weight to 225 g which is under the 675 g constraint limit set above. This will allow for some extra weight to be included for other subsystems.
 
-  
+(8)  
+
+As mentioned in the previous analysis, the COM-18343 is not capable of outputing the sound level listed in the constarint allowing this system to be safe from damaging the indivudals hearing. The max sound level is 115 dB while the max level to be an immediate damage to an individuals hearing is 120 dB.
+
 
 ## BOM
 
