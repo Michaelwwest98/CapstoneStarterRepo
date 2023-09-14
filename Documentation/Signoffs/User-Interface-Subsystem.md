@@ -14,8 +14,6 @@ The function of this subsystem is primarily to display the triage result in an i
 | Heartbeat data speed | Must display heartbeat data at least once per second | From Conceptual Design Constraint 16 |
 | Display respiratory data | Shall display victim’s breath rate in breaths per minute | From Conceptual Design Constraint 12 and from Heartbeat and Respiratory Subsystem section |
 | Respiratory data speed | Must display respiratory data at least once per second | From Conceptual Design Constraint 16 |
-| Weight | 	The entire system must weigh less than 6 pounds, this subsystem should weigh 1.5 lbs or less | From DARPA constraints and from Conceptual Design Constraint 13 |
-
 
 ## Block Diagram
 ![UI_Block_Diagram_1](https://github.com/Michaelwwest98/DARPA-Drone-Triage-Sensing-System/blob/Michaelwwest98-ui-subsystem-signoff/Documentation/Images/UI_Block_Diagram_1.JPG)
@@ -36,7 +34,7 @@ The Python program will check for, retrieve, and display heartbeat and respirato
 The specific computer used for the UI Subsystem Python program will be incidental, as the input from the Wireless Communication Subsystem is connected via USB as described in more detail in the Wireless Communication Subsystem signoff. The triage result as well as the secondary data will all be static data when shown to the user. The triage result will be shown as a static result because it is a final result. An average respiratory rate and heartbeat will show the user whether each respective rate is normal, too high, or too low. This will allow the user to gain a decent understanding of why the victim is given their specific triage result.
 
 ### Weight Addition to System
-Since no part of this subsystem will be a physical component connected to the drone, this subsystem will add 0 lbs to the drone's overall load.
+The total weight of the system that is to be attached to the drone is constrained to be less than 6 pounds. However, since no part of this particular subsystem will be a physical component connected to the drone, this subsystem will add 0 lbs to the drone's overall load.
 
 ### Speed of the System
 According to the programmers behind Python, the current version is approximately 64% faster than the previous version of Python, which would run code in about 48.03 seconds [3]. Applying that approximate percentage to the runtime of the previous version to find the runtime of the current version of Python, means that using the current version of Python, version 3.11, any code written for it should run in approximately 17.29 seconds. Future versions of Python are also currently being developed to run faster than that.
