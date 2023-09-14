@@ -9,11 +9,13 @@ The function of this subsystem is primarily to display the triage result in an i
 | Description | Constraint | Source |
 |-------------|------------|--------|
 | Display triage results | Must display whether the victim is in the Expectant, Immediate, or Delayed category | From START Method [1] |
+| System Speed | The system must provide triage results in less than 1 minute | From DARPA constraints |
 | Display heartbeat data | Shall display victim’s heartbeat in beats per minute | From Conceptual Design, from Heartbeat and Respiratory Subsystem section |
+| Heartbeat data speed | Must display heartbeat data at least once per second | From Conceptual Design, from Background & Constraints section |
 | Display respiratory data | Shall display victim’s breath rate in breaths per minute | From Conceptual Design, from Heartbeat and Respiratory Subsystem section |
+| Respiratory data speed | Must display respiratory data at least once per second | From Conceptual Design, from Background & Constraints section |
 | Weight | 	The entire system must weigh less than 6 pounds, this subsystem should weigh 1.5 lbs or less | From DARPA constraints, from Conceptual design |
-| Speed | The system must provide triage results in less than 1 minute | From DARPA constraints |
-| On and Off Input | The system must have a way to turn off | NFPA 70 National Electric Code |
+
 
 ## Block Diagram
 ![UI_Block_Diagram_1](https://github.com/Michaelwwest98/DARPA-Drone-Triage-Sensing-System/blob/Michaelwwest98-ui-subsystem-signoff/Documentation/Images/UI_Block_Diagram_1.JPG)
@@ -25,7 +27,10 @@ Pictured above is the block diagram for the UI for the program that will show th
 The main result will be the necessary data from the Computing Subsystem sent via the Wireless Communication Subsystem to output the victim's triage result onto the screen: the sorting status of the victim, whether they are Expectant, Immediate, or Delayed as described in the START Method [1]. This data will be taken through the Wireless Communication Subsystem from the Computing Subsystem in the Jetson Nano, as described in the Computing Subsystem and Wireless Communication Subsystem signoffs respectively. This data will be shown so that responders will know which victim needs help the quickest, according to the triage algorithm in the Jetson Nano. 
 
 ### Average Heartbeat and Respiratory Rate Display
-Secondarily, the two less prominent outputs for the UI would be the average measured heartbeat in beats per minute (bpm) and the average measured respiratory rate in breaths per minute (bpm) taken from the Computing Subsystem. This data will be taken from the Jetson Nano instead of being taken directly from the radar, as the Jetson Nano will be the device directly connected to the computer running the UI Subsystem Python program. The Python program will take a sample of heartbeat and respiratory rate data, do the necessary calculations to average them out, and then display them to the user. This data will be important so that responders can get a quick look at the data that leads to the triage result also shown on-screen such that they can help the victim that needs the quickest attention with more certainty. 
+Secondarily, the two less prominent outputs for the UI would be the heartbeat in beats per minute (bpm) and the respiratory rate in breaths per minute (bpm) taken from the Computing Subsystem. This data will be taken from the Jetson Nano instead of being taken directly from the radar, as the Jetson Nano will be the device directly connected to the computer running the UI Subsystem Python program. The Python program will take a sample of heartbeat and respiratory rate data, do the necessary calculations to average them out, and then display them to the user. This data will be important so that responders can get a quick look at the data that leads to the triage result also shown on-screen such that they can help the victim that needs the quickest attention with more certainty.
+
+### Heartbeat and Respiratory Rate Speed
+The Python program will check for, retrieve, and display heartbeat and respiratory rate at least once per second. This functionality is necessary in order to allow responders to always be able to see what each given victim's heartbeat and respiratory rate are at any given time and to also be able to see sudden changes in heartbeat and respiratory rate. This will allow them to adjust their response appropriately given the specific situation.
 
 ### Location of Python Program
 The specific computer used for the UI Subsystem Python program will be incidental, as the input from the Wireless Communication Subsystem is connected via USB as described in more detail in the Wireless Communication Subsystem signoff. The triage result as well as the secondary data will all be static data when shown to the user. The triage result will be shown as a static result because it is a final result. An average respiratory rate and heartbeat will show the user whether each respective rate is normal, too high, or too low. This will allow the user to gain a decent understanding of why the victim is given their specific triage result.
@@ -37,7 +42,7 @@ Since no part of this subsystem will be a physical component connected to the dr
 According to the programmers behind Python, the current version is approximately 64% faster than the previous version of Python, which would run code in about 48.03 seconds [3]. Applying that approximate percentage to the runtime of the previous version to find the runtime of the current version of Python, means that using the current version of Python, version 3.11, any code written for it should run in approximately 17.29 seconds. Future versions of Python are also currently being developed to run faster than that.
 
 ### On and Off Input
-According to the NEC, any safe electrical system should have an input to turn the system off. Within the Python code, there will be a way for users to input a command to turn the system off. 
+Within the Python code, there will be a way for users to input a command to turn the system off and on. This is for both safety reasons as well as in case of a specific scenario where the system will need to be turned off and/or on.
 
 ## BOM
 | Name of item | Description | Part Number | Manufacturer | Quantity | Price | Total |
