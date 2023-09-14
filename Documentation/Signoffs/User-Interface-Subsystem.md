@@ -8,13 +8,13 @@ The function of this subsystem is primarily to display the triage result in an i
 
 | Description | Constraint | Source |
 |-------------|------------|--------|
-| Display triage results | Must display whether the victim is in the Expectant, Immediate, or Delayed category | From START Method [1] |
+| Display triage results | Must display whether the victim is in the Expectant, Immediate, or Delayed category with appropriate associated color | From START Method [1] and from Conceptual Design Constraint 12|
 | System Speed | The system must provide triage results in less than 1 minute | From DARPA constraints |
-| Display heartbeat data | Shall display victim’s heartbeat in beats per minute | From Conceptual Design, from Heartbeat and Respiratory Subsystem section |
-| Heartbeat data speed | Must display heartbeat data at least once per second | From Conceptual Design, from Background & Constraints section |
-| Display respiratory data | Shall display victim’s breath rate in breaths per minute | From Conceptual Design, from Heartbeat and Respiratory Subsystem section |
-| Respiratory data speed | Must display respiratory data at least once per second | From Conceptual Design, from Background & Constraints section |
-| Weight | 	The entire system must weigh less than 6 pounds, this subsystem should weigh 1.5 lbs or less | From DARPA constraints, from Conceptual design |
+| Display heartbeat data | Shall display victim’s heartbeat in beats per minute | From Conceptual Design Constraint 12 and from Heartbeat and Respiratory Subsystem section |
+| Heartbeat data speed | Must display heartbeat data at least once per second | From Conceptual Design Constraint 16 |
+| Display respiratory data | Shall display victim’s breath rate in breaths per minute | From Conceptual Design Constraint 12 and from Heartbeat and Respiratory Subsystem section |
+| Respiratory data speed | Must display respiratory data at least once per second | From Conceptual Design Constraint 16 |
+| Weight | 	The entire system must weigh less than 6 pounds, this subsystem should weigh 1.5 lbs or less | From DARPA constraints and from Conceptual Design Constraint 13 |
 
 
 ## Block Diagram
@@ -24,7 +24,7 @@ The function of this subsystem is primarily to display the triage result in an i
 Pictured above is the block diagram for the UI for the program that will show the user the output data from the algorithm. The final data will be shown to the user via a Python script [2] that creates an intuitive table of the relevant data listed in the Specs and Constraints section. Data that will be displayed includes the following: triage results, heartbeat, and respiratory rate data. Triage results should be prioritized as the main result being displayed with heartbeat data and respiratory data being displayed as secondary data to help responders understand why the triage algorithm assigned that specific triage result to the victim and so that responders may act with more certainty quickly and effectively to help the victim that needs the quickest response first.
 
 ### Triage Result Display
-The main result will be the necessary data from the Computing Subsystem sent via the Wireless Communication Subsystem to output the victim's triage result onto the screen: the sorting status of the victim, whether they are Expectant, Immediate, or Delayed as described in the START Method [1]. This data will be taken through the Wireless Communication Subsystem from the Computing Subsystem in the Jetson Nano, as described in the Computing Subsystem and Wireless Communication Subsystem signoffs respectively. This data will be shown so that responders will know which victim needs help the quickest, according to the triage algorithm in the Jetson Nano. 
+The main result will be the necessary data from the Computing Subsystem sent via the Wireless Communication Subsystem to output the victim's triage result onto the screen: the sorting status of the victim, whether they are Expectant, Immediate, or Delayed as described in the START Method [1]. This data will be taken through the Wireless Communication Subsystem from the Computing Subsystem in the Jetson Nano, as described in the Computing Subsystem and Wireless Communication Subsystem signoffs respectively. This data will be shown so that responders will know which victim needs help the quickest, according to the triage algorithm in the Jetson Nano. Each of the sorting statuses will also be associated with a specific color. This will make it clearer to responders which triage result they have been given, especially after extended use.
 
 ### Average Heartbeat and Respiratory Rate Display
 Secondarily, the two less prominent outputs for the UI would be the heartbeat in beats per minute (bpm) and the respiratory rate in breaths per minute (bpm) taken from the Computing Subsystem. This data will be taken from the Jetson Nano instead of being taken directly from the radar, as the Jetson Nano will be the device directly connected to the computer running the UI Subsystem Python program. The Python program will take a sample of heartbeat and respiratory rate data, do the necessary calculations to average them out, and then display them to the user. This data will be important so that responders can get a quick look at the data that leads to the triage result also shown on-screen such that they can help the victim that needs the quickest attention with more certainty.
