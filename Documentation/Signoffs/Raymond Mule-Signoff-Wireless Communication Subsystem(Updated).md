@@ -18,11 +18,9 @@ Since DARPA does not specifiy a minimum distance that the drone can be away from
 
 The RAK811 transceiver has a very high sensitivity of -148 dBm, enabling it to transmit data over extremely long distances. This high sensitivity allows the transceiver to receive signals that have become very weak after traveling a great distance.
 
-The RAK811 transceiver does have the possibility to be directly connected to the computing subsystem, but due to conflicts with the other subsystems being attached to the computing subsystem, it was necessary to acquire another RAKDAP1 which converts the UART pins of the RAK811 to USB. This makes sure that this subsystem will not interfere with any other subsystems.
-
 ## Schematic- 
 
-![Newer Schematic](https://github.com/Michaelwwest98/DARPA-Drone-Triage-Sensing-System/assets/123600489/93efebfa-8629-47f7-8946-5c98d0226c97)
+![Newest Schematic](https://github.com/Michaelwwest98/DARPA-Drone-Triage-Sensing-System/assets/123600489/cc0cd754-5744-4b14-8777-ad1688809484)
 
 | RAK811 LoRa Breakout Board PINOUT |---|
 |-----------------------------------|---|
