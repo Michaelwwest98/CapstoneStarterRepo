@@ -53,9 +53,19 @@ Figure taken from [3]
 
 If value is a 1 speech has been detected and value can be sent for further analysis at other subsystems.
 
-(2),(3)
+(2)
 
-Sound Pressure Level (SPL) is a way to measure sound intensity compared to human hearing. 0 dB SPL is the minimum a person can hear, while 30 dB SPL is the sound level of a human whisper at a 1 meter distance. The BOB-19389 datasheet states a signal to noise ratio (SNR) of 67 dBV/Pa taken from a 94 dB SPL signal. To calculate the minimum sound level that the microphone can pick up the noise floor level, or the point at which the noise distorts the signal coming in that no signal can be ditected, needs to be found. This is done by simply finding the differnce between the signal used to measure the SNR and the SNR itself. In the case of BOB-19389 this is 94 - 67 which equals 27 dB. This means that from the meter distance the microphone will be able to pick up a human whisper of 30 dB without the signal being distored.      
+Sound Pressure Level (SPL) is a way to measure sound intensity compared to human hearing. 0 dB SPL is the minimum a person can hear, while 30 dB SPL is the sound level of a human whisper at a 1 meter distance in normal nise conditions.
+
+
+To calculate the minimum sound level that the microphone can pick up, the noise floor level, or the point at which the noise distorts the signal coming in that no signal can be ditected, needs to be calculated. This is done by simply finding the differnce between the signal used to measure the SNR and the SNR itself. This will ensure that in normal noise conditions a whisper sound can be picked up and not distorted. The additive of drone noise will be discussed in constraint section (6).
+
+
+The BOB-19389 datasheet states a signal to noise ratio (SNR) of 67 dBV/Pa taken from a 94 dB SPL signal. In the case of BOB-19389 this is 94 - 67 which equals 27 dB. This means that from the meter distance the microphone will be able to pick up a human whisper of 30 dB without the signal being distored.      
+
+
+(3)
+
 The datasheet of the BOB-19389 also states a 3dB rolloff frequency range of 7 Hz - 19 kHz which includes the threshold set by the constraints to capture human voice frequencies. The BOB-19389 will be able to capture the 100-3000 Hz range set by the constraint.
 
 (4),(5)
@@ -65,7 +75,9 @@ The COM-18343 datasheet also states the speaker is full range and captures all t
 
 (6)
 
-The COM-18343 speakers will be able to overcome the noises outside this system such as drone noise, but what about the BOB-19389 microphone? The BOB-19389 is an omnidirectional microphne which is useful to capture sounds that are not necessarily under the microphone, but will also capture other noises such as the drone it is attached to. To solve this issue the casing for this subsystem can create a soundproof barrier for the back of the micrphone eliminating half of the direction sound can be picked up from and making the leakage that does come noise that will not have enough inesity to cause issues for the microphone. The BOB-19389 datasheet also states a max of 134 dB SPL meaning that even if the full sounds are picked up, it will not damage the microphone.
+The COM-18343 speakers will be able to overcome the noises outside this system such as drone noise, but what about the BOB-19389 microphone? The BOB-19389 is an omnidirectional microphne which is useful to capture sounds that are not necessarily under the microphone, but will also capture other noises such as the drone it is attached to. To solve this issue the casing for this subsystem can incorperate a soundproof barrier for the back of the micrphone eliminating half of the direction sound can be picked up.
+
+A material such as cork has a coefficent of 0.7 sound abosorption. This means that 70% of sound will be abosrobed while the other 30% will be reflected. With commercial drone noise levels reaching 85 dB only around 25.5 dB of sound will be reflected out. This level is within the noise floor level as described in contraint (2) so the drone noise will seem like normal outside noise to microphone alowing it to pick even whispers. The BOB-19389 datasheet also states a max of 134 dB SPL meaning that even if the full sounds are picked up, it will not damage the microphone.
 
 (7)
 
