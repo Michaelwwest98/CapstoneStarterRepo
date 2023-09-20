@@ -9,8 +9,8 @@ The function of the wireless communication subsystem is to wirelessly transport 
 | 1. The maximum distance the sensing system can be away from the command center is 9 kilometers | Analyzed from DARPA's constraints |
 | 2. The system shall send results from the computing subsystem to user interface subsystem at a maximum time of two seconds | Analyzed from DARPA's constraints |
 | 3. The entire subsystem shall weigh less than 1.2 pounds| From conceptual design |
-| 4. Unlicensed devices that operate in the 915 MHz band allow for a maximum power output of up to 30 dBm or 1 Watt | From FCC Part 15 Subpart C |
-| 5. The device must operate in the United States Unlicensed frequency band that is 915 MHz | From FCC Part 15 Subpart D |
+| 4. Unlicensed devices that operate in the 902 - 928 MHz band allow for a maximum power output of up to 30 dBm or 1 Watt | From FCC Part 15 Subpart C |
+| 5. The device must operate in the United States Unlicensed frequency band that is from 902 - 928 MHz | From FCC Part 15 Subpart D |
 | 6. The system must be able to transmit a data packet at the size of at least 30 bits of data | From further analysis of the subsystem |
 | 7. The system must be compatible with Linux based computing systems | From further analysis of the subsystem |
 
@@ -59,7 +59,7 @@ This means that the data from the computing subsystem will be able to reach the 
 
 6. The RAK811 Breakout Board operates in the 915 MHz band and the maximum power output that the RAK811 Breakout Board is 100mW or 20 dBm, which falls below the safety standard of 30 dBm or 1 watt set by the FCC Part 15 Subpart C.
 
-7. Since the team does not have a license to operate in certain frequency bands used by the United States, the transceiver must operate in the unlicensed frequency band in the United States which is 915 MHz stated by FCC Part 15 Subpart D. According to the RAK811 transceiver datasheet, the transciever operates in the 915 MHz frequency band fulfilling the constraint.
+7. Since the team does not have a license to operate in certain frequency bands used by the United States, the transceiver must operate in the unlicensed frequency band in the United States which is between 902 MHz and 928 MHz stated by FCC Part 15 Subpart D. According to the RAK811 transceiver datasheet, the transciever operates in the 915 MHz frequency band fulfilling the constraint.
 
 8. The size of data that will be sent from the computing subsystem to the user interface subsystem and back will approximately be around 30 bits. The maximum payload size that the RAK811 transceiver can send in one data packet is 52 bytes which is significantly greater than the needed amount. 
 
