@@ -45,7 +45,9 @@ Once converted through the ADC the signal can be sent through a digital passband
 
 Figure taken from [3]
 
-With energy of the signal found a threshhold for min level of energy can be used to detect where speech is present. In the case of [3] 17 dB is used. This creates a graph that looks like the one below.
+With energy of the signal found a threshhold for min level of energy can be used to detect where speech is present. In the case of [3] 17 dB is used. 
+
+A unique characteristic to human speech is that although there is a max energy level, ever time a human sound is spoken there is a varience in energy leading up to and at the end of the actual sound bite. This is evidenced by the two figures above. This imperfection to stability of voice can be used to differntiate human tone versus signals with same frequency and amplitude. Once a region where threshold of energy is found to be true is created, the varience in energies at different points along that region can be compared. If energy is above 17 dB and there is enough varience between that region, a human voice is present. This creates a graph that looks like the one below.
 
 ![image](https://github.com/Michaelwwest98/DARPA-Drone-Triage-Sensing-System/assets/79685126/dbd87f31-08b4-4b58-b0f0-6515aa8fff09)
 
@@ -55,33 +57,39 @@ If value is a 1 speech has been detected and value can be sent for further analy
 
 (2)
 
-Sound Pressure Level (SPL) is a way to measure sound intensity compared to human hearing. 0 dB SPL is the minimum a person can hear, while 30 dB SPL is the sound level of a human whisper at a 1 meter distance in normal nise conditions.
+Sound Pressure Level (SPL) is a way to measure sound intensity compared to human hearing. 0 dB SPL is the minimum a person can hear, while 30 dB SPL is the sound level of a human whisper at a 1 meter distance.
 
 
-To calculate the minimum sound level that the microphone can pick up, the noise floor level, or the point at which the noise distorts the signal coming in that no signal can be ditected, needs to be calculated. This is done by simply finding the differnce between the signal used to measure the SNR and the SNR itself. This will ensure that in normal noise conditions a whisper sound can be picked up and not distorted. The additive of drone noise will be discussed in constraint section (6).
+To find the minimum sound level that the microphone can pick up the noise floor level needs to be calculated, This is the point at which the device noise present distorts the signal coming in so that the two signals can 
+ not be seperated. This is done by simply finding the differnce between the signal used to measure the SNR (signal-to-noise ratio) and the SNR value itself. This will ensure that a whisper sound can be picked up and not be lost in the device noise. The additive of drone noise will be discussed in constraint section (6).
 
 
-The BOB-19389 datasheet states a signal to noise ratio (SNR) of 67 dBV/Pa taken from a 94 dB SPL signal. In the case of BOB-19389 this is 94 - 67 which equals 27 dB. This means that from the meter distance the microphone will be able to pick up a human whisper of 30 dB without the signal being distored.      
+The BOB-19389 datasheet states a signal to noise ratio (SNR) of 67 dBV/Pa taken from a 94 dB SPL signal. In the case of the BOB-19389 the noise floor level is calculated by taking those two values and subtracting, 94 - 67, which equals 27 dB. This is less than the 30 dB needed to be measured so the two signals can be seperated. This means that from the meter distance the microphone will be able to pick up a human whisper of 30 dB without the signal being distored.      
 
 
 (3)
 
 The datasheet of the BOB-19389 also states a 3dB rolloff frequency range of 7 Hz - 19 kHz which includes the threshold set by the constraints to capture human voice frequencies. The BOB-19389 will be able to capture the 100-3000 Hz range set by the constraint.
 
-(4),(5)
+(4)
 
 To see the sound level output of the speaker, the intensity of the speaker must first be calculated. The equation for intensity is I = P / (4 * pi * r) where P is the power of the system and r is the distance from source. The COM-18343 datasheet states the speaker includes 2 X 2 W speakers and the constarint puts the distance at 1 meter. The intensity can then be calculated to be 0.3183 W/m^2. This value can be converted to dB scle using the equation dB = 10 * log (I / Io), where I is intensity calcuted and Io is the threshold intensity for human hearing which is set to 1*10^-12 W/m^2. The total sound level capable of being outpued by the speaker is 115 dB. With the drone noise being around the value of 96 dB, this means the COM-18343 is able to output sound that is louder than the drone noises this system will be attached to.    
+
+(5)
+
 The COM-18343 datasheet also states the speaker is full range and captures all the heard frequencies from 20 Hz - 20kHz set by the constraint above. But more importantly it will be able to produce sound between 2000 Hz through 5000 Hz which is the range most sensitive to the human ear. 
 
 (6)
 
 The COM-18343 speakers will be able to overcome the noises outside this system such as drone noise, but what about the BOB-19389 microphone? The BOB-19389 is an omnidirectional microphne which is useful to capture sounds that are not necessarily under the microphone, but will also capture other noises such as the drone it is attached to. To solve this issue the casing for this subsystem can incorperate a soundproof barrier for the back of the micrphone eliminating half of the direction sound can be picked up.
 
-A material such as cork has a coefficent of 0.7 sound abosorption. This means that 70% of sound will be abosrobed while the other 30% will be reflected. With commercial drone noise levels reaching 85 dB only around 25.5 dB of sound will be reflected out. This level is within the noise floor level as described in contraint (2) so the drone noise will seem like normal outside noise to microphone alowing it to pick even whispers. The BOB-19389 datasheet also states a max of 134 dB SPL meaning that even if the full sounds are picked up, it will not damage the microphone.
+A material such as cork has a coefficent of 0.7 sound abosorption. This means that 70% of sound will be abosrobed while the other 30% will be reflected. With commercial drone noise levels reaching 85 dB only around 25.5 dB of sound will not be abosrbed by the barrier. This level is within the noise floor level as described in contraint (2) so the drone noise will seem like normal outside noise to microphone alowing it to pick even whispers. This is just an example of a material that can function as a barrier, but the barrier analysis can be done when designing the drone system and the casing which is outside the scope of this system.
+
+The BOB-19389 datasheet also states a max of 134 dB SPL meaning that even if the full sounds are picked up, it will not damage the microphone. 
 
 (7)
 
-The total subsystem will consist of two parts. The microphone and speaker. The speakers weight is not specified, but simaliar speakers weig around 200 g, and the microphone, whose weight is also not specficed, has around a weight of 25 g. This brings the total subsystem weight to 225 g which is under the 675 g constraint limit set above. This will allow for some extra weight to be included for other subsystems.
+The total subsystem will consist of two parts. The microphone and speaker. The speakers weight is not specified, but a similar product the Adafruit 3369 has the same 2W speaker layout and same dimensions of 83mmX43mmX33mm has a weight of 73.6g, and the microphone, whose weight is also not specficed, but with such a small device it will not excced the 601.4g left for this subsystem. This brings the total subsystem weight to to under the 675 g constraint limit set above. This will allow for some extra weight to be included for other subsystems.
 
 (8)  
 
