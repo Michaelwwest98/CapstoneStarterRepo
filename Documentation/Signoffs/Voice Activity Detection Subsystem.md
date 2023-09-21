@@ -60,7 +60,7 @@ If value is a 1 speech has been detected and value can be sent for further analy
 Sound Pressure Level (SPL) is a way to measure sound intensity compared to human hearing. 0 dB SPL is the minimum a person can hear, while 30 dB SPL is the sound level of a human whisper at a 1 meter distance.
 
 
-To find the minimum sound level that the microphone can pick up the noise floor level needs to be calculated, This is the point at which the device noise present distorts the signal coming in so that the two signals can 
+To find the minimum sound level that the microphone can pick up the noise floor level needs to be calculated, This is the point at which the device noise distorts the signal coming in so that the two signals can 
  not be seperated. This is done by simply finding the differnce between the signal used to measure the SNR (signal-to-noise ratio) and the SNR value itself. This will ensure that a whisper sound can be picked up and not be lost in the device noise. The additive of drone noise will be discussed in constraint section (6).
 
 
