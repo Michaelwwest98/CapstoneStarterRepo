@@ -9,7 +9,7 @@ This subsystem is responsible for powering all necessary devices that are presen
 | 1 | Operation time | The system must operate at full functionality for 15 to 60 minutes | Darpa[1] |
 | 2 | Form of power | The power source for our system must be portable, and replaceable or rechargeable | The system is being designed to eventually be attached to a drone which will require an independent, portable power supply. Darpa[1] |
 | 3 | Weight | The power system must weigh a max of 1.5 lbs  | From Darpa[1] and Conceptual Design |
-| 4 | Powering the Jetson Nano | The Jetson Nano must maintain a supply voltage greater than or equal to 4.75 V via a 2.1 mm DC barrel jack. The Jetson Nano has a maximum voltage rating of 5.5 V and a maximum current rating of 5 A. The Nano consumes approximately 1.25 W at 4 A with no peripherals | This constraint originates from the computing subsystem required for data processing and to operate the on-board sensors. The specifications come from the Jetson Nano datasheets and NVIDIA forums [2][3][4] |
+| 4 | Powering the Jetson Nano | The Jetson Nano must maintain a supply voltage greater than or equal to 4.75 V via a 2.1 mm DC barrel jack. The input voltage ripple should be below 500 mV. The Jetson Nano has a maximum voltage rating of 5.5 V and a maximum current rating of 5 A. The Nano consumes approximately 1.25 W at 4 A with no peripherals | This constraint originates from the computing subsystem required for data processing and to operate the on-board sensors. The specifications come from the Jetson Nano datasheets and NVIDIA forums [2][3][4] |
 | 5 | Power Consumption | The system must effectively supply 1.1250 A at 5 V for a total power of 5.625 W | [9] [10] [11] [12] |
 
 ## Buildable Schematic
@@ -21,6 +21,10 @@ This subsystem is responsible for powering all necessary devices that are presen
 3.  The power system must be under 1.5 lbs. The power system is weighing in at just under 1 lb. This design complies with the weight constraint [5][6][8].
 4.  The Jetson Nano requires a specific power supply. The buck converter/regulator is going to step down the voltage from 12 V to 5.0 V and limits the current to a maximum of 5 A. The buck converter uses op amps as feedback circuit to regulate output voltage. The battery adapter plate is going to allow easy connection to the battery pack and the regulator. The system will require two 2.1 mm DC barrel jacks with loose leads to connect the battery to the input of the regulator and the second one to connect the output of the regulator to the power supply input of the Jetson Nano. The connectors that will be used are 18 AWG which will be capable of handling 5V/5A. This design makes for an easy setup and meets all specifications for the Jetson Nano [5][6][7].
 
+![Buck converter output voltage ripple](https://github.com/Michaelwwest98/DARPA-Drone-Triage-Sensing-System/assets/123699820/1b264d8e-653e-47e7-ab21-49f261f8b0f4)
+
+- The simulated buck converter circuit above shows an output voltage ripple of around 200 mVp-p that does not dip below 4.75 V which is within standard for the Jetson Nano.
+
 5. 
 | # | Peripheral | Power Considerations | Source |
 |---|------------|----------------------|--------|
@@ -31,9 +35,9 @@ This subsystem is responsible for powering all necessary devices that are presen
 
 The peripherals run off of the Jetson's 5 V pin, 3.3 V pin, and the USB 2.0 ports. The 5 V pins are connected via a power rail. The 3.3 V pin is connected from the 5 V V_in through an MP2152 2A, step-down converter. The overall circuit is essentially the following diagram.
 
-![Power System Circuit Analysis](https://github.com/Michaelwwest98/DARPA-Drone-Triage-Sensing-System/assets/123699820/9ed6de54-e216-444b-8dcf-685680a0d42a)
+![Power System Circuit Analysis](https://github.com/Michaelwwest98/DARPA-Drone-Triage-Sensing-System/assets/123699820/b3211bbe-ba57-4009-8b76-8c89e204ab33)
 
-The total current seen by the 5 V source is 1.1250 A which, using Ohm's Law, results in a total power of 5.625 W. The battery and regulator circuit is capable of supplying up to 75 W. The Jetson can take up to 5 A. This system theoretically should work.
+- The total current seen by the 5 V source is 1.1250 A which, using Ohm's Law, results in a total power of 5.625 W. The battery and regulator circuit is capable of supplying up to 75 W. The Jetson can take up to 5 A. This system theoretically should work.
 
 ## BOM
 | Product | Quantity | Price |
