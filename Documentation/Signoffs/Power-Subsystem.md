@@ -9,8 +9,9 @@ This subsystem is responsible for powering all necessary devices that are presen
 | 1 | Operation time | The system must operate at full functionality for 15 to 60 minutes | Darpa[1] |
 | 2 | Form of power | The power source for our system must be portable, and replaceable or rechargeable | The system is being designed to eventually be attached to a drone which will require an independent, portable power supply. Darpa[1] |
 | 3 | Weight | The power system must weigh a max of 1.5 lbs  | From Darpa[1] and Conceptual Design |
-| 4 | Powering the Jetson Nano | The Jetson Nano must maintain a supply voltage greater than or equal to 4.75 V via a 2.1 mm DC barrel jack. The input voltage ripple should be below 500 mV. The Jetson Nano has a maximum voltage rating of 5.5 V and a maximum current rating of 5 A. The Nano consumes approximately 1.25 W at 4 A with no peripherals | This constraint originates from the computing subsystem required for data processing and to operate the on-board sensors. The specifications come from the Jetson Nano datasheets and NVIDIA forums [2][3][4] |
-| 5 | Power Consumption | The system must effectively supply 1.1250 A at 5 V for a total power of 5.625 W | [9] [10] [11] [12] |
+| 4 | Powering the Jetson Nano | The Jetson Nano must maintain a supply voltage greater than or equal to 4.75 V via a 2.1 mm DC barrel jack. The input voltage ripple should be below 500 mV. The Jetson Nano has a maximum voltage rating of 5.5 V and a maximum current rating of 5 A. The power rating for the jetson nano is 27.5 W. The Nano consumes approximately 1.25 W at 4 A with no peripherals | This constraint originates from the computing subsystem required for data processing and to operate the on-board sensors. The specifications come from the Jetson Nano datasheets and NVIDIA forums [2][3][4] |
+| 5 | OpAmp Circuit | The opamp circuit requires +/- 5 V. The maximimum input voltage is +/- 15 V, and the maximum power consumption is going to be from 8 to 60 mW | OP07 Datasheet [13] | 
+| 6 | Power Consumption | The system must effectively supply 1.1250 A at 5 V for a total power of 5.625 W to the Jetson and its peripherals via the 12 V out of the battery adapter plate, and it must supply max 60 mW from 7.4 V out of the adapter plate for a total of 5.685 W | [9] [10] [11] [12] [13] |
 
 ## Buildable Schematic
 ![Power Subsystem Buildable Schematic](https://github.com/Michaelwwest98/DARPA-Drone-Triage-Sensing-System/assets/123699820/a4a049ab-8726-47c9-a8cd-c67424ba8cbb)
@@ -36,10 +37,18 @@ This subsystem is responsible for powering all necessary devices that are presen
 The peripherals run off of the Jetson's 5 V pin, 3.3 V pin, and the USB 2.0 ports. The 5 V pins are connected via a power rail. The 3.3 V pin is connected from the 5 V V_in through an MP2152 2A, step-down converter. The overall circuit is essentially the following diagram.
 
 ![Power System Circuit Analysis](https://github.com/Michaelwwest98/DARPA-Drone-Triage-Sensing-System/assets/123699820/b3211bbe-ba57-4009-8b76-8c89e204ab33)
+- The total current seen by the 5 V source is 1.1250 A which, using Ohm's Law, results in a total power of 5.625 W.
 
-- The total current seen by the 5 V source is 1.1250 A which, using Ohm's Law, results in a total power of 5.625 W. The battery and regulator circuit is capable of supplying up to 75 W. The Jetson can take up to 5 A. This system theoretically should work.
+The Opamp circuit will be powered via the following diagram:
+
+![Opamp Circuit Analysis](https://github.com/Michaelwwest98/DARPA-Drone-Triage-Sensing-System/assets/123699820/fcf0cbac-3ab3-4dff-a144-e6f382f818d7)
+
+- The power consumed by the simulated opamp circuit is 10 mW.
+
+- The total power consumption from the battery is 5.635 W. The battery and regulator circuit is capable of supplying up to 75 W. The Jetson is rated to draw a maximum of 5 A. The power is running thruogh the Jetson which has a maximum rating of 27.5 W. This system theoretically should be able to supply the appropriate amount of power to all components as analyzed.
 
 ## BOM
+
 | Product | Quantity | Price |
 |---------|----------|-------|
 | DC-DC 5A Buck Converter 4-38V to 1.25-36V Step-Down Voltage Regulator High Power Module with LED Display | 1 | $4.89 |
@@ -75,4 +84,6 @@ https://forums.developer.nvidia.com/t/power-supply-considerations-for-jetson-nan
 [11] *SPH8878LR5H-1 Datasheet*, Sparkfun. Available: https://www.sparkfun.com/products/19389
 
 [12] *COM-18343 Datasheet*, Sparkfun. Available: https://www.sparkfun.com/products/18343
+
+[13] *OP07 Datasheet*, Digikey. Available: https://www.analog.com/media/en/technical-documentation/data-sheets/OP07.pdf
 
