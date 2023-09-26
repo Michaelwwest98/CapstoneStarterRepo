@@ -45,7 +45,7 @@ The Opamp circuit will be powered via the following diagram:
 
 - The power consumed by the simulated opamp circuit is 10 mW.
 
-- The total power consumption from the battery is 5.635 W. The battery and regulator circuit is capable of supplying up to 75 W. The Jetson is rated to draw a maximum of 5 A. The power is running thruogh the Jetson which has a maximum rating of 27.5 W. This system theoretically should be able to supply the appropriate amount of power to all components as analyzed.
+- The total power consumption from the battery is 5.635 W. The battery and regulator circuit connected to the Jetson is capable of supplying up to 75 W. The battery and boost converter connected to the opamp circuit is capable of supplying 5 V output at 2 A given a 7.5 V input for a total of 10 W output. The Jetson is rated to draw a maximum of 5 A. The power is running thruogh the Jetson which has a maximum rating of 27.5 W. This system theoretically should be able to supply the appropriate amount of power to all components as analyzed.
 
 ## BOM
 
