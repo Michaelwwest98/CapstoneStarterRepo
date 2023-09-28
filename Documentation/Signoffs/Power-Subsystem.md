@@ -9,9 +9,10 @@ This subsystem is responsible for powering all necessary devices that are presen
 | 1 | Operation time | The system must operate at full functionality for 15 to 60 minutes | Darpa[1] |
 | 2 | Form of power | The power source for our system must be portable, and replaceable or rechargeable | The system is being designed to eventually be attached to a drone which will require an independent, portable power supply. Darpa[1] |
 | 3 | Weight | The power system must weigh a max of 1.5 lbs  | From Darpa[1] and Conceptual Design |
-| 4 | Powering the Jetson Nano | The Jetson Nano must maintain a supply voltage greater than or equal to 4.75 V via a 2.1 mm DC barrel jack. The input voltage ripple should be below 500 mV. The Jetson Nano has a maximum voltage rating of 5.5 V and a maximum current rating of 5 A. The power rating for the jetson nano is 27.5 W. The Nano consumes approximately 1.25 W at 4 A with no peripherals | This constraint originates from the computing subsystem required for data processing and to operate the on-board sensors. The specifications come from the Jetson Nano datasheets and NVIDIA forums [2][3][4] |
-| 5 | OpAmp Circuit | The opamp circuit requires +/- 5 V. The maximimum input voltage is +/- 15 V, and the maximum power consumption is going to be from 8 to 60 mW | OP07 Datasheet [13] | 
-| 6 | Power Consumption | The system must effectively supply 1.1250 A at 5 V for a total power of 5.625 W to the Jetson and its peripherals via the 12 V out of the battery adapter plate, and it must supply max 60 mW from 7.4 V out of the adapter plate for a total of 5.685 W | [9] [10] [11] [12] [13] |
+| 4 | Powering the Jetson Nano | The Jetson Nano must maintain a supply voltage greater than or equal to 4.75 V via a 2.1 mm DC barrel jack. The input voltage ripple should be below 220 mV peak to peak. The Jetson Nano has a maximum voltage rating of 5.5 V and a maximum current rating of 5 A. The power rating for the jetson nano is 27.5 W. The Nano consumes approximately 1.25 W at 4 A with no peripherals | This constraint originates from the computing subsystem required for data processing and to operate the on-board sensors. The specifications come from the Jetson Nano datasheets and NVIDIA forums and peripherals' datasheets [2][3][4][9][10][11][12][13] |
+| 5 | Power Consumption | The system must effectively supply 1.1250 A at 5 V for a total power of 5.625 W to the Jetson and its peripherals via the 12 V out of the battery adapter plate, and it must supply max 60 mW from 7.4 V out of the adapter plate for a total of 5.685 W | [9][10][11][12][13] |
+| 6 | OpAmp Circuit | The opamp circuit requires +/- 5 V. The maximimum input voltage is +/- 15 V, and the maximum power consumption is going to be from 8 to 60 mW | OP07 Datasheet [13] | 
+
 
 ## Buildable Schematic
 ![Power Subsystem Buildable Schematic](https://github.com/Michaelwwest98/DARPA-Drone-Triage-Sensing-System/assets/123699820/a4a049ab-8726-47c9-a8cd-c67424ba8cbb)
@@ -22,30 +23,42 @@ This subsystem is responsible for powering all necessary devices that are presen
 3.  The power system must be under 1.5 lbs. The power system is weighing in at just under 1 lb. This design complies with the weight constraint [5][6][8].
 4.  The Jetson Nano requires a specific power supply. The buck converter/regulator is going to step down the voltage from 12 V to 5.0 V and limits the current to a maximum of 5 A. The buck converter uses op amps as feedback circuit to regulate output voltage. The battery adapter plate is going to allow easy connection to the battery pack and the regulator. The system will require two 2.1 mm DC barrel jacks with loose leads to connect the battery to the input of the regulator and the second one to connect the output of the regulator to the power supply input of the Jetson Nano. The connectors that will be used are 18 AWG which will be capable of handling 5V/5A. This design makes for an easy setup and meets all specifications for the Jetson Nano [5][6][7].
 
+Input Voltage Ripple considerations:
+| # | Peripheral | Ripple Considerations | Source |
+|---|------------|----------------------|--------|
+| 1 | Radar Module | Max ripple 500 mV peak to peak | IPS-937 24GHZ RADAR MODULE datasheet [9] |
+| 2 | RAK811 LPWAN Breakout Module | Max ripple 220 mV peak to peak | RAK811 LPWAN Breakout Module datasheet [10] |
+| 3 | Microphone | Max ripple 500 mV peak to peak | B0B-19389 datasheet [11] |
+| 4 | Speaker | Max ripple 500 mV peak to peak | COM-18343 datasheet [12] |
+
+- Due to the peripherals being powered off of the Jetson's power rails the maximum input voltage ripple is the lowest of the peripherals which is 220 mV peak to peak. 
+
 ![Buck converter output voltage ripple](https://github.com/Michaelwwest98/DARPA-Drone-Triage-Sensing-System/assets/123699820/1b264d8e-653e-47e7-ab21-49f261f8b0f4)
 
-- The simulated buck converter circuit above shows an output voltage ripple of around 200 mVp-p that does not dip below 4.75 V which is within standard for the Jetson Nano.
+- The simulated buck converter circuit above shows an output voltage ripple of around 200 mVp-p that does not dip below 4.75 V which is within standard for the Jetson Nano and all of the peripherals.
 
 5. 
 | # | Peripheral | Power Considerations | Source |
 |---|------------|----------------------|--------|
-| 1 | Radar Module | The minimum supply voltage is 4.75 V. The maximum supply voltage and current is 5.25 V at 65 mA. The typical supply voltage and current is 5.0 V at 55 mA. This gives a typical power consumption of 275 mW and a maximum power consumption of 341.25 mW. | IPS-937 24GHZ RADAR MODULE datasheet [9] |
-| 2 | RAK811 LPWAN Breakout Module | The maximum supply voltage is 3.45 V. The typical supply voltage is 3.3 V. The minimum current consumption is 30 mA when transmitting a signal. | RAK811 LPWAN Breakout Module datasheet [10] |
+| 1 | Radar Module | The minimum supply voltage is 4.75 V. The maximum supply voltage and current is 5.25 V at 65 mA. The typical supply voltage and current is 5.0 V at 55 mA. This gives a typical power consumption of 275 mW and a maximum power consumption of 341.25 mW. Max ripple 500 mV peak to peak | IPS-937 24GHZ RADAR MODULE datasheet [9] |
+| 2 | RAK811 LPWAN Breakout Module | The maximum supply voltage is 3.45 V. The typical supply voltage is 3.3 V. The minimum current consumption is 30 mA when transmitting a signal. Max ripple 220 mV peak to peak | RAK811 LPWAN Breakout Module datasheet [10] |
 | 3 | Microphone | The total power consumption is 4 W. | B0B-19389 datasheet [11] |
 | 4 | Speaker | The maximum supply voltage is 3.6 V. At 3.6 V the device is tested to draw typically 0.265 mA. | COM-18343 datasheet [12] |
 
 The peripherals run off of the Jetson's 5 V pin, 3.3 V pin, and the USB 2.0 ports. The 5 V pins are connected via a power rail. The 3.3 V pin is connected from the 5 V V_in through an MP2152 2A, step-down converter. The overall circuit is essentially the following diagram.
 
 ![Power System Circuit Analysis](https://github.com/Michaelwwest98/DARPA-Drone-Triage-Sensing-System/assets/123699820/b3211bbe-ba57-4009-8b76-8c89e204ab33)
-- The total current seen by the 5 V source is 1.1250 A which, using Ohm's Law, results in a total power of 5.625 W.
+- The total current seen by the 5 V source is 1.1250 A which, using Ohm's Law, results in a total power of 5.625 W. The Jetson is rated to draw a maximum of 5 A. The power is running through the Jetson which has a maximum rating of 27.5 W
 
+6.
+The battery adapter plate has two connection ports that may be used simultaneously (12 V and 7.4 V). A second power module is being used to generate +/- 5 V from the 7.4 V output of the battery adapter plate. This module is not being used to power the entire system because it is less efficient than the power module used to power the Jetson, and it is not capable of supplying enough power. 
 The Opamp circuit will be powered via the following diagram:
 
 ![Opamp Circuit Analysis](https://github.com/Michaelwwest98/DARPA-Drone-Triage-Sensing-System/assets/123699820/fcf0cbac-3ab3-4dff-a144-e6f382f818d7)
 
-- The power consumed by the simulated opamp circuit is 10 mW.
+- Each opamp is drawing 1 mA at 5 V which results in a power consumption of 5 mW from each opamp seen by the source. The total power consumed by the simulated opamp circuit is 10 mW.
 
-- The total power consumption from the battery is 5.635 W. The battery and regulator circuit connected to the Jetson is capable of supplying up to 75 W. The battery and boost converter connected to the opamp circuit is capable of supplying 5 V output at 2 A given a 7.5 V input for a total of 10 W output. The Jetson is rated to draw a maximum of 5 A. The power is running thruogh the Jetson which has a maximum rating of 27.5 W. This system theoretically should be able to supply the appropriate amount of power to all components as analyzed.
+- The total power consumption from the battery is 5.635 W. The battery and regulator circuit connected to the Jetson is capable of supplying up to 75 W. The battery and boost converter connected to the opamp circuit is capable of supplying 5 V output at 2 A given a 7.5 V input for a total of 10 W output. This system theoretically should be able to supply the appropriate amount of power to all components as analyzed.
 
 ## BOM
 
