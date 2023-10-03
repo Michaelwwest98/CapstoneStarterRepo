@@ -56,6 +56,7 @@ The Opamp circuit will be powered via the following diagram:
 
 ![Opamp Circuit Analysis](https://github.com/Michaelwwest98/DARPA-Drone-Triage-Sensing-System/assets/123699820/fcf0cbac-3ab3-4dff-a144-e6f382f818d7)
 
+- Decoupling capacitors with value 0.1 $\mu$ F are being used to filter out any high frequency ripple on our input voltage to give a clean DC input to the opamps as seen in the figure above.
 - Each opamp is drawing 1 mA at 5 V which results in a power consumption of 5 mW from each opamp seen by the source. The total power consumed by the simulated opamp circuit is 10 mW.
 
 - The total power consumption from the battery is 5.635 W. The battery and regulator circuit connected to the Jetson is capable of supplying up to 75 W. The battery and boost converter connected to the opamp circuit is capable of supplying 5 V output at 2 A given a 7.5 V input for a total of 10 W output. This system theoretically should be able to supply the appropriate amount of power to all components as analyzed.
