@@ -20,7 +20,7 @@ The RAK811 transceiver has a very high sensitivity of -148 dBm, enabling it to t
 
 ## Schematic- 
 
-![Newest Schematic](https://github.com/Michaelwwest98/DARPA-Drone-Triage-Sensing-System/assets/123600489/cc0cd754-5744-4b14-8777-ad1688809484)
+![Most_Newest_Scematic](https://github.com/TnTech-ECE/CapstoneStarterRepo/assets/123600489/838026af-3567-4727-9e24-eea32cde70de)
 
 | RAK811 LoRa Breakout Board PINOUT |---|
 |-----------------------------------|---|
@@ -65,7 +65,7 @@ This means that the data from the computing subsystem will be able to reach the 
 
 9. Within the RAK811 Quick Start Guide documentation, there is a list specifying the required hardware components needed for the transceiver to function properly. One of these components specified in the list is a Linux computer which means that the RAK811 transceiver is compatible with Linux based systems.
   
-From there, you must use a serial port tool to interact with the transceiver. The manufacturer does not seem to provide a serial port tool for Linux, but on a forum on the manufactuer's website, and employee of the manufacturer said on the forum to use a serial port tool called Cutecom. Cutecom is a serial port tool that is able to run on Linux4tegra which is the operating system on Jetson nano which will be the chosen computing system for the project. This allows the computing system to interact with the RAK811 transceiver.
+From there, you must use a serial port tool to interact with the transceiver. The manufacturer does not seem to provide a serial port tool for Linux, but on a forum on the manufactuer's website, and employee of the manufacturer said on the forum to use a serial port tool called Cutecom. Cutecom is a serial port tool that is able to run on the Raspberry Pi 4 Model B which will be the chosen computing system for the project. This allows the computing system to interact with the RAK811 transceiver.
 
 ## BOM-
 
