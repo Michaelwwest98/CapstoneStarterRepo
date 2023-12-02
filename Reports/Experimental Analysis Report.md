@@ -272,44 +272,47 @@ To test if system is capable of sensning the bpm necessary for heartbeat detetio
 - Experimental Design  
   Use either a FFT or Power density fucntion to see if values between this randge are able to be detected
 - Results  
-  
+  ![image](https://github.com/Michaelwwest98/DARPA-Drone-Triage-Sensing-System/assets/79685126/8e8979f6-b017-4604-8668-cb2f013a9381)
 - Interpretation of Results  
-  
+  As seen in the reults this specific constraint was not met, but the issue is more with the cnstarint than the reults. The constraint frequencies are too large for human voice.
+  The system is stil clearly able to detect some og the freuqnecies in the range set by constraint. 
 #### Constraint 4 - Must output sound at a volume heard from at least 1 meter away
-- Experimental Design
-
-- Results
-
-- Interpretation of Results
-  
+- Experimental Design  
+  Play sound and check if heard from a meter away in different conditions.
+- Results  
+  No physical reult taken
+- Interpretation of Results  
+  Although no physical result was recorded. Speaker was operational and could be heard by all team emembers in an ideal environment without any other outside effects.
+  More testing needs to be done on if speaker can operate and be heard in other conditions.
 #### Constraint 5 - Must play sound clips between 20 Hz- 20000 Hz
-- Experimental Design
-
-- Results
-
-- Interpretation of Results
-  
+- Experimental Design  
+  Play sound for 20 to 20000 Hz on the speaker
+- Results  
+  No physical result
+- Interpretation of Results  
+  Speaker ended up not being operational so this test was not run, but speaker was connected to bluetooth and it played youtube videos just fine.
 #### Constraint 6 - Must function with noise from drone from at least 1 meter away
-- Experimental Design
-
-- Results
-
-- Interpretation of Results
-  
+- Experimental Design  
+  Test system with drone noise and record relsults of voice detection accruacy and audio heard accuracy from at least 1 meter away
+- Results  
+  Test not fully completed
+- Interpretation of Results  
+  Test was completed with drone noise coming from phone, but futher testing needs to be done with actual drone noise to test accruacy.
+  The system did pass the simple observational test of drone noise coming from drone, but results could vary in different environments.
 #### Constraint 7 - The entire subsystem shall weigh less than 1.2 pounds
-- Experimental Design
-
-- Results
-
-- Interpretation of Results
-  
+- Experimental Design  
+  Weigh total system
+- Results  
+  Weight not taken
+- Interpretation of Results  
+  Although weight not taken, microphone is the size of a penny, so system won't come close to the limit set by this constraint. 
 #### Constraint 8 - Speaker output must not be louder than 120 dB
-- Experimental Design
-
-- Results
-
-- Interpretation of Results
-  
+- Experimental Design  
+  Check how loud speaker output is
+- Results  
+  N/A
+- Interpretation of Results  
+  Speaker system did not work so loudness of the speaker could not be tested on the system. But volume s contorlled so it can be many different vlaues.  
 ### COMPUTING
 #### Constraint 1 - 
 - Experimental Design
