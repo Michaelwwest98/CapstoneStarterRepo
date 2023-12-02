@@ -81,43 +81,27 @@ To test if system is capable of sensning the bpm necessary for heartbeat detetio
   Building a test stand a meter away and comparing result given by system with physically counting amount breaths and the amount of beats in 30 seconds and calculating
   both bpms that way.
 - Results
-
+![image](https://github.com/Michaelwwest98/DARPA-Drone-Triage-Sensing-System/assets/79685126/b187a445-4f80-49a0-adde-cfbeacdd2a8a)
 - Interpretation of Results
-  
-#### Constraint 4 -
+  The reults show how accurate the system is in 10 trials. The percent errors are given bottom right. It is important to note that all measurments are taken at ideal conditions.
+  This means that when the idnivudal has a normal resting bpm the system is pretty accurate. More teting needs to be done in harsher condiitons to see accruacy in more real world conditions.
+  This will allow furhter testing of peak detection algorithm accruacy. 
+#### Constraint 4 - Entire system must weigh less than 6 pounds, this subsystem should weight 1.5 lbs or less
 - Experimental Design
-
+  Weighing the items to get actual weight of entire subsstem
 - Results
-
+  System was not physically weighed
 - Interpretation of Results
-  
-#### Constraint 5 -
+  ALthough the hysical weight of system was not found just by size of the radar it is clear that it probably weighs less than 1.5 lbs. But system should stilll be weighed.
+#### Constraint 5 - Radar must not emit at a frequency over 10 GHz with a power density of 1000 W/m^2 in order to keep the radar skin and eye safe
 - Experimental Design
-
+  Calculate the power density of beam by creating a phycial araea where the system functions and dividning it by the power emmited by system.
 - Results
-
+  Did not execute this test
 - Interpretation of Results
-  
-#### Constraint 6 -
-- Experimental Design
+  Due to lack of time this test was not executed, but the output power of system is in miliwatts so dividing it by any area will
+  give you something less than 100 W/m^2. Still the test should be executed to confirm this result
 
-- Results
-
-- Interpretation of Results
-  
-#### Constraint 7 -
-- Experimental Design
-
-- Results
-
-- Interpretation of Results
-  
-#### Constraint 8 -
-- Experimental Design
-  
-- Results
-
-- Interpretation of Results
   
 ### POWER
 
