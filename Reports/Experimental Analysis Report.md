@@ -78,7 +78,8 @@ To test if system is capable of sensning the bpm necessary for heartbeat detetio
   it is also capable of measuring 0.017 to 1.17 Hz
 #### Constraint 3 - Must detect and measure heartbeat and breath rate from at least 1 meter away
 - Experimental Design
-  
+  Building a test stand a meter away and comparing result given by system with physically counting amount breaths and the amount of beats in 30 seconds and calculating
+  both bpms that way.
 - Results
 
 - Interpretation of Results
