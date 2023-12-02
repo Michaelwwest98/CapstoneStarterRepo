@@ -14,16 +14,16 @@
 |3 | Must detect and measure heartbeat and breath rate from at least 1 meter away | N/A |
 | 4 | Entire system must weigh less than 6 pounds, this subsystem should weight 1.5 lbs or less | N/A |
 | 5 | Radar must not emit at a frequency over 10 GHz with a power density of 1000 W/m^2 in order to keep the radar skin and eye safe. | N/A |
-| 6 | Operational Amplifier must be able to handle a max 0.8 V peak-to-peak amplitude and a maximum 19.4 KHz frequency. | N/A |
-| 7 | Circuit must be able to filter out high frequencies with a corner frequency of around 19kHz while at least also amplifying the signals between 0.017Hz - 3.5Hz by a gain of 6. The corner frequency comes from satisfying nyquist value for a sample frequency of 38.4kHz as specified by the ADC datasheet. | N/A |
-| 8 | The gain of 6 comes from a 0.8 Vp-p input voltage of the radar as specified by the datasheet which needs to reach no more then 5 Vp-p output voltage as specified by the ADC datasheet. The frequency minimum of 0.017 Hz comes from the total bandwidth needed by heartbeat and respiratory rate frequencies. | N/A |
+| 6 | Operational Amplifier must be able to handle a max 0.8 V peak-to-peak amplitude and a maximum 19.4 KHz frequency. | Ampflier not used for this iteration of system, hopefully it can be implemented in future |
+| 7 | Circuit must be able to filter out high frequencies with a corner frequency of around 19kHz while at least also amplifying the signals between 0.017Hz - 3.5Hz by a gain of 6. The corner frequency comes from satisfying nyquist value for a sample frequency of 38.4kHz as specified by the ADC datasheet. | Ampflier not used for this iteration of system, hopefully it can be implemented in future |
+| 8 | The gain of 6 comes from a 0.8 Vp-p input voltage of the radar as specified by the datasheet which needs to reach no more then 5 Vp-p output voltage as specified by the ADC datasheet. The frequency minimum of 0.017 Hz comes from the total bandwidth needed by heartbeat and respiratory rate frequencies. | Ampflier not used for this iteration of system, hopefully it can be implemented in future |
 | -- | **POWER** | -- |
 | 1 | The system must operate at full functionality for 15 to 60 minutes | N/A |
 | 2 | The power source for our system must be portable, and replaceable or rechargeable | N/A |
 | 3 | The power system can weigh a max of 1.5 lbs | N/A |
 | 4 | The Jetson Nano must maintain a supply voltage greater than or equal to 4.75 V via a 2.1 mm DC barrel jack. The input voltage ripple should be below 220 mV peak to peak. The Jetson Nano has a maximum voltage rating of 5.5 V and a maximum current rating of 5 A. The power rating for the Jetson nano is 27.5 W. The Nano consumes approximately 1.25 W at 4 A with no peripherals |  The Raspberry Pi 4 B requires a nominal input voltage of 5 V via USB type C connector. The input voltage ripple should be below 220 mV peak to peak. The Raspberry Pi 4 Model B has a maximum voltage rating of 6 V and a maximum current rating of 3 A. The Raspberry Pi 4 Model B consumes approximately 2.7 W at 240 mA with no peripherals. |
 | 5 | The system must effectively supply 1.1250 A at 5 V for a total power of 5.625 W to the Jetson and its peripherals via the 12 V out of the battery adapter plate, and it must supply max 60 mW from 7.4 V out of the adapter plate for a total of 5.685 W | N/A |
-|6 | The op amp circuit requires +/- 5 V. The maximum input voltage is +/- 15 V, and the maximum power consumption is going to be from 8 to 60 mW | N/A |
+|6 | The op amp circuit requires +/- 5 V. The maximum input voltage is +/- 15 V, and the maximum power consumption is going to be from 8 to 60 mW | Ampflier not used for this iteration of system, hopefully it can be implemented in future |
 | -- | **WIRELESS COMMUNCATION** | -- |
 | 1 | The maximum distance the sensing system can be away from the command center is 9 kilometers | N/A |
 | 2 | The system shall send results from the computing subsystem to user interface subsystem at a maximum time of two seconds | N/A |
@@ -56,23 +56,29 @@
 ## Experimental Results
 
 ### RESPIRATORY/HEARTBEAT
-#### Constraint 1 - 
+#### Constraint 1 - Must sense Beats per minute from 30 to 210 bpm
 - Experimental Design
-
+To test if system is capable of sensning the bpm necessary for heartbeat detetion, a live person can be placed under radar while system is running
+, once FFT is recieved looking if there is any data between 0.5 Hz and 3.5 Hz that is not present when system is tested without a person shows the system is caable of detecting such frequnecies. 
 - Results
-
+![image](https://github.com/Michaelwwest98/DARPA-Drone-Triage-Sensing-System/assets/79685126/51a7825d-9967-4bb8-bc15-e55e333279c3)
 - Interpretation of Results
+  The results showed everytime an indidual was placed under, if system was operating properly with no errors, there would be a change between the
+  frequcnies listed above. This doesn't necessarily mean that the correct values are present, but it for sure proves that the system is indeed capable of retieving frequenices that low.
+  A 30 second window is also used sampling at over 100 Hz so emeprically the system should also be capale of looking at sch low frequenices. But looking at the plots
+  shows that practically this is the case too.
 
-#### Constraint 2 -
+#### Constraint 2 -  Must sense breaths per minute from 1 to 70 bpm
 - Experimental Design
-
+  Refer to constraint 1
 - Results
-
+  Refer to constraint 1
 - Interpretation of Results
+  There is an overlap in freuqnices for breath rate and heart rate, meaning if system is capable of measring up to 3.5 Hz as mentioned above,
+  it is also capable of measuring 0.017 to 1.17 Hz
+#### Constraint 3 - Must detect and measure heartbeat and breath rate from at least 1 meter away
+- Experimental Design
   
-#### Constraint 3 -
-- Experimental Design
-
 - Results
 
 - Interpretation of Results
