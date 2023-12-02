@@ -139,54 +139,62 @@ To test if system is capable of sensning the bpm necessary for heartbeat detetio
   
 
 ### WIRELESS COMMUNICATION
-#### Constraint 1 - 
-- Experimental Design
+#### Constraint 1 - The maximum distance the sensing system can be away from the command center is 9 kilometers
+- Experimental Design  
+  Transmit data at different intervals and through different environements up to the 9 kilometer limit
+- Results  
+  Did not complete this expermeient emperically
+- Interpretation of Results  
+  Although the experiemnt was not completed, through testing, the command center system was moved furhter away from radar system all thoughout capstone lab
+  and functioned perfectly fine. System was also able to function when testing outside of the lab, but emeprical data must be taken to see if and at what conditions
+   the system can operate at the 9 km distance. 
+#### Constraint 2 - The system shall send results from the computing subsystem to user interface subsystem at a maximum time of two seconds
+- Experimental Design  
+  Take the time intervals it takes data to ne transimtted and recieved beteen the two systems at different distances from control unit.
+- Results  
+  Did not complete experiemnt
+- Interpretation of Results  
+  This constraint needs to be tested as through testing it wasn't even noted the time it took to transmit. System needs to be timed and recorded to
+  see accuracy of system.
+#### Constraint 3 - The entire subsystem shall weigh less than 1.2 pounds
+- Experimental Design  
+  Weigh the total wirelss subsystem
+- Results  
+  Was not physically weighed
+- Interpretation of Results  
+  Although system not physically weighed, the size of system and holding it when using allowed for a prety good conclusion that it weighed less than
+  1.2 pounds. But system for completeess system should still be weighed.
+#### Constraint 4 - Unlicensed devices that operate in the 902 - 928 MHz band allow for a maximum power output of up to 30 dBm or 1 Watt
+- Experimental Design  
+  Measure the power of the system 
+- Results  
+  No emperical power measurement taken
+- Interpretation of Results  
+  Unfortunately, the equipment in the lab could not measure the output power of the transmitter accurately, so the team had to rely on inputted settings and the datasheet to meet this constraint. According to the datasheet, the max power output of this transceiver is 20 dBm which falls below the maximum 30 dBm for transceivers that operate in the 902 - 928 MHz frequency band set in the constraints. While setting up the transceiver using python codes with AT commands, the power output was set to 5 dBm or 0.003162277 W which also falls below the 30 dBm or 1 W maximum output power for transceiver that operate in the 902 - 928 MHz frequency band in the constraints.
+#### Constraint 5 - The device must operate in the United States Unlicensed frequency band that is from 902 - 928 MHz
+- Experimental Design  
+  Set device to run at sepcified frequency band.
+- Results  
+  N/A
+- Interpretation of Results  
+  The device was set to operate in the 915 MHz frequency band using AT commands found within the code within the computing subsystem. This satisfies the
+  constraint of operating within the 902 - 928 MHz frequency band.
+#### Constraint 6 - The system must be able to transmit a data packet at the size of at least 30 bits of data
+- Experimental Design  
+  Calculate the amount of bits sent by the transmitter in the data packet
+- Results  
+  72 bits per data packet
+- Interpretation of Results  
+  Systems sends a total of 9 numbers, with each number taken up 8 bits of data, that puts each data packet at ariund 72 bits. his emans System is above the 30
+  bits of data per packet limit 
+#### Constraint 7 - The system must be compatible with Linux based computing systems
+- Experimental Design  
+  Run wirless system on linux device
+- Results  
+  Runs on Linux
+- Interpretation of Results  
+  The whole project runs onlinux which means for project to have worked properly, wirelss system was compatable to operate on linux device.
 
-- Results
-
-- Interpretation of Results
-  
-#### Constraint 2 -
-- Experimental Design
-
-- Results
-
-- Interpretation of Results
-  
-#### Constraint 3 -
-- Experimental Design
-
-- Results
-
-- Interpretation of Results
-  
-#### Constraint 4 -
-- Experimental Design
-
-- Results
-
-- Interpretation of Results
-  
-#### Constraint 5 -
-- Experimental Design
-
-- Results
-
-- Interpretation of Results
-  
-#### Constraint 6 -
-- Experimental Design
-
-- Results
-
-- Interpretation of Results
-  
-#### Constraint 7 -
-- Experimental Design
-
-- Results
-
-- Interpretation of Results
   
 ### USER INTERFACE
 #### Constraint 1 - 
