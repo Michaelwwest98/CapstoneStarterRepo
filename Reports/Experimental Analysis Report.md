@@ -191,9 +191,9 @@ To test if system is capable of sensning the bpm necessary for heartbeat detetio
 - Experimental Design  
   Run wirless system on linux device
 - Results  
-  Runs on Linux
+  ![image](https://github.com/Michaelwwest98/DARPA-Drone-Triage-Sensing-System/assets/79685126/8e7cd4dc-f949-4b17-b3d6-544c428ca46f)
 - Interpretation of Results  
-  The whole project runs onlinux which means for project to have worked properly, wirelss system was compatable to operate on linux device.
+  Using cutecom, a serial port tool for Linux, the system is able to interact with Linux based systems successfully transmitting data, fulfilling this constraint.
 
   
 ### USER INTERFACE
@@ -203,7 +203,7 @@ To test if system is capable of sensning the bpm necessary for heartbeat detetio
 - Results  
 ![image](https://github.com/Michaelwwest98/DARPA-Drone-Triage-Sensing-System/assets/79685126/13188982-e9a5-43c0-ba72-4eee3071fadf)
 ![image](https://github.com/Michaelwwest98/DARPA-Drone-Triage-Sensing-System/assets/79685126/aa585897-610c-449e-bc5d-e217b951a395)
-Third Delayed not pictured, but fucntional 
+  Third Delayed not pictured, but fucntional 
 - Interpretation of Results  
   All three appear on the UI interface, but color is not present and needs to be added. 
 #### Constraint 2 - The system must provide triage results in less than 1 minute
@@ -215,35 +215,43 @@ Third Delayed not pictured, but fucntional
   Although physcial time not kept, since the system takes 31 seconds to collect the heartbeat, respiratory, and voicy activity data, the user interface
   system is able to successfully display the triage results in less than one minute.
  
-#### Constraint 3 -
-- Experimental Design
+#### Constraint 3 - Shall display victim’s heartbeat in beats per minute
+- Experimental Design  
+  Check diplay if beats per minute is displayed
+- Results  
+  Refer to reults of constarint 1
+- Interpretation of Results  
+  The user interface system is able to successfully display an individual’s heart rate in bpm.
 
-- Results
+#### Constraint 4 - Must display heartbeat data at least once per second
+- Experimental Design  
+  Keep track and record how often there is a change in value on display and compare to 1 second
+- Results  
+  Not possible 
+- Interpretation of Results  
+  As previously stated, the system takes 31 seconds to collect the heartbeat, respiratory, and voice activity data, so the user interface system is
+  unable to display an individual’s heart rate data at least once per second.
 
-- Interpretation of Results
+#### Constraint 5 - Shall display victim’s breath rate in breaths per minute
+- Experimental Design  
+  Check diplay if breaths per minute is displayed
+- Results  
+  Refer to reults of constarint 1
+- Interpretation of Results  
+  he user interface system is able to successfully display an individual’s breathing rate in bpm.
   
-#### Constraint 4 -
-- Experimental Design
+#### Constraint 6 -  Must display respiratory data at least once per second 
+- Experimental Design  
+  Keep track and record how often there is a change in value on display and compare to 1 second
+- Results  
+  Not possible
+- Interpretation of Results  
+  As previously stated, the system takes 31 seconds to collect the heartbeat, respiratory, and voice activity data, so the user interface system is
+  unable to display an individual’s heart rate data at least once per second.
 
-- Results
-
-- Interpretation of Results
-  
-#### Constraint 5 -
-- Experimental Design
-
-- Results
-
-- Interpretation of Results
-  
-#### Constraint 6 -
-- Experimental Design
-
-- Results
-
-- Interpretation of Results
   
 ### VOICE ACTIVITY DETECTION
+
 #### Constraint 1 - 
 - Experimental Design
 
