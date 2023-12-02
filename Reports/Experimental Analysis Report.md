@@ -6,11 +6,344 @@
 
 ### Constraints Table
 
-| # | Specification/Constraint | Rescope |
-| -- | ------------------------ | --------------------- | -------------------- |
-| -- | Respiratory/Heartbeat |----------------------|----------------------|
+| ID | Specification/Constraint | Rescope |
+| -- | ------------------------ | --------------------- |
+| -- | **RESPIRATORY/HEARTBEAT** |--|
 | 1 | Must sense Beats per minute from 30 to 210 bpm (or frequencies from 0.5 Hz to 3.5 Hz) | N/A |
+| 2 | Must sense breaths per minute from 1 to 70 bpm (or frequencies from 0.017 Hz to 1.17 Hz) | N/A |
+|3 | Must detect and measure heartbeat and breath rate from at least 1 meter away | N/A |
+| 4 | Entire system must weigh less than 6 pounds, this subsystem should weight 1.5 lbs or less | N/A |
+| 5 | Radar must not emit at a frequency over 10 GHz with a power density of 1000 W/m^2 in order to keep the radar skin and eye safe. | N/A |
+| 6 | Operational Amplifier must be able to handle a max 0.8 V peak-to-peak amplitude and a maximum 19.4 KHz frequency. | N/A |
+| 7 | Circuit must be able to filter out high frequencies with a corner frequency of around 19kHz while at least also amplifying the signals between 0.017Hz - 3.5Hz by a gain of 6. The corner frequency comes from satisfying nyquist value for a sample frequency of 38.4kHz as specified by the ADC datasheet. | N/A |
+| 8 | The gain of 6 comes from a 0.8 Vp-p input voltage of the radar as specified by the datasheet which needs to reach no more then 5 Vp-p output voltage as specified by the ADC datasheet. The frequency minimum of 0.017 Hz comes from the total bandwidth needed by heartbeat and respiratory rate frequencies. | N/A |
+| -- | **POWER** | -- |
+| 1 | The system must operate at full functionality for 15 to 60 minutes | N/A |
+| 2 | The power source for our system must be portable, and replaceable or rechargeable | N/A |
+| 3 | The power system can weigh a max of 1.5 lbs | N/A |
+| 4 | The Jetson Nano must maintain a supply voltage greater than or equal to 4.75 V via a 2.1 mm DC barrel jack. The input voltage ripple should be below 220 mV peak to peak. The Jetson Nano has a maximum voltage rating of 5.5 V and a maximum current rating of 5 A. The power rating for the Jetson nano is 27.5 W. The Nano consumes approximately 1.25 W at 4 A with no peripherals |  The Raspberry Pi 4 B requires a nominal input voltage of 5 V via USB type C connector. The input voltage ripple should be below 220 mV peak to peak. The Raspberry Pi 4 Model B has a maximum voltage rating of 6 V and a maximum current rating of 3 A. The Raspberry Pi 4 Model B consumes approximately 2.7 W at 240 mA with no peripherals. |
+| 5 | The system must effectively supply 1.1250 A at 5 V for a total power of 5.625 W to the Jetson and its peripherals via the 12 V out of the battery adapter plate, and it must supply max 60 mW from 7.4 V out of the adapter plate for a total of 5.685 W | N/A |
+|6 | The op amp circuit requires +/- 5 V. The maximum input voltage is +/- 15 V, and the maximum power consumption is going to be from 8 to 60 mW | N/A |
+| -- | **WIRELESS COMMUNCATION** | -- |
+| 1 | The maximum distance the sensing system can be away from the command center is 9 kilometers | N/A |
+| 2 | The system shall send results from the computing subsystem to user interface subsystem at a maximum time of two seconds | N/A |
+| 3 | The entire subsystem shall weigh less than 1.2 pounds | N/A |
+| 4 | Unlicensed devices that operate in the 902 - 928 MHz band allow for a maximum power output of up to 30 dBm or 1 Watt | N/A |
+| 5 | The device must operate in the United States Unlicensed frequency band that is from 902 - 928 MHz | N/A |
+| 6 | The system must be able to transmit a data packet at the size of at least 30 bits of data | N/A |
+| 7 | The system must be compatible with Linux based computing systems | N/A |
+| -- | **USER INTERFACE** | -- |
+| 1 | Must display whether the victim is in the Expectant, Immediate, or Delayed category with appropriate associated color | N/A |
+| 2 | The system must provide triage results in less than 1 minute | N/A |
+| 3 | Shall display victim’s heartbeat in beats per minute | N/A |
+| 4 | Must display heartbeat data at least once per second | N/A |
+| 5 | Shall display victim’s breath rate in breaths per minute | N/A |
+| 6 | Must display respiratory data at least once per second | N/A |
+| -- | **VOICE ACTIVITY DETECTION** | -- |
+| 1 | Must detect the presence of a human voice from audio signal
+| 2 | Must pick up a minimum sound pressure level of 30 dB SPL from at least 1 meter away | N/A |
+| 3 | Must sense frequencies from 100 Hz to 3000 Hz | N/A |
+| 4 | Must output sound at a volume heard from at least 1 meter away | N/A |
+| 5 | Must play sound clips between 20 Hz- 20000 Hz | N/A |
+| 6 | Must function with noise from drone from at least 1 meter away | N/A |
+| 7 | The entire subsystem shall weigh less than 1.2 pounds | N/A |
+| 8 | Speaker output must not be louder than 120 dB | N/A |
+| -- | **COMPUTING** | N/A |
+| 1 | Must calculate results of triage algorithm and display wirelessly in under 2 seconds | N/A |
+| 2 | Must not store any audio recordings of victims in distress | N/A |
+| 3 | Must weigh below 1.2 lbs | N/A |
 
 ## Experimental Results
 
-### Constraint 1 - Sign Displays Numbers 00 to 99
+### RESPIRATORY/HEARTBEAT
+#### Constraint 1 - 
+- Experimental Design
+
+- Results
+
+- Interpretation of Results
+
+#### Constraint 2 -
+- Experimental Design
+
+- Results
+
+- Interpretation of Results
+  
+#### Constraint 3 -
+- Experimental Design
+
+- Results
+
+- Interpretation of Results
+  
+#### Constraint 4 -
+- Experimental Design
+
+- Results
+
+- Interpretation of Results
+  
+#### Constraint 5 -
+- Experimental Design
+
+- Results
+
+- Interpretation of Results
+  
+#### Constraint 6 -
+- Experimental Design
+
+- Results
+
+- Interpretation of Results
+  
+#### Constraint 7 -
+- Experimental Design
+
+- Results
+
+- Interpretation of Results
+  
+#### Constraint 8 -
+- Experimental Design
+  
+- Results
+
+- Interpretation of Results
+  
+### POWER
+
+#### Constraint 1 - 
+- Experimental Design
+  - To operate from 15 to 60 minutes a 2600 mAh Li-ion battery pack is used to power the computing system and all peripherals by estimating using worst case scenarios/max values.
+  
+- Results
+  - The battery was able to power the Raspberry Pi for 2 hours without any negative effects to the system.
+    
+- Interpretation of Results
+  - The system is most definitely not operating at worst case, but is 100% able to operate for the mandated time period.
+    
+#### Constraint 2 -
+- Experimental Design
+  - For the power system to be portable and replaceable or recharagable, a rechargable battery pack with an adapter plate designed for small hand-held cameras was chosen.
+    
+- Results
+  - The battery and battery adapter plate mounts easily to our test stand and the battery charges easily with a supplied wall charger.
+    
+- Interpretation of Results
+  - The power system is portable and rechargable.
+    
+#### Constraint 3 -
+- Experimental Design
+  - In order to stay below the weight requirement of 1.5 pounds, a battery system was chosen that was indeed light weight as it is designed to be mounted on a portable camera.
+    
+- Results
+  - The power system came out to weigh just under 0.5 lbs.
+    
+- Interpretation of Results
+  - The weight requirement was met for the power subsystem.
+    
+#### Constraint 4 -
+- Experimental Design
+  - To supply the appropriate voltage and current levels as well as input voltage ripple for the Raspberry Pi and the peripherals, a buck converter/voltage regulator was used along with the battery.
+    
+- Results
+  - No load voltage ripple on the output of the buck converter/regulator was measure to be 30 mV peak to peak. The voltage seen by the Raspberry Pi is 5 V, and the regulator can supply up to 20 W.
+    
+- Interpretation of Results
+  - The power system is able to effectively power the computing system and all peripherals.
+  
+#### Constraint 5 -
+- Experimental Design
+  - To supply the appropriate voltage and current levels as well as input voltage ripple for the Raspberry Pi and the peripherals, a buck converter/voltage regulator was used along with the battery.
+    
+- Results
+  - The voltage regulator is outputting 5 V which is seen by the Raspberry Pi, and the regulator can supply up to 20 W.
+    
+- Interpretation of Results
+  - The power system is able to effectively power the computing system and all peripherals.
+    
+#### Constraint 6 -
+- Experimental Design
+  - The battery adapter plate has a built-in boost converter and an additional output terminal of 12 V. This output terminal would be used to power the op-amp circuit via a secondary regulator/buck-boost converter that has both positive and negative output rails.
+    
+- Results
+  - Time did not permit for this device to be tested.
+    
+- Interpretation of Results
+  - N/A
+
+### WIRELESS COMMUNICATION
+#### Constraint 1 - 
+- Experimental Design
+
+- Results
+
+- Interpretation of Results
+  
+#### Constraint 2 -
+- Experimental Design
+
+- Results
+
+- Interpretation of Results
+  
+#### Constraint 3 -
+- Experimental Design
+
+- Results
+
+- Interpretation of Results
+  
+#### Constraint 4 -
+- Experimental Design
+
+- Results
+
+- Interpretation of Results
+  
+#### Constraint 5 -
+- Experimental Design
+
+- Results
+
+- Interpretation of Results
+  
+#### Constraint 6 -
+- Experimental Design
+
+- Results
+
+- Interpretation of Results
+  
+#### Constraint 7 -
+- Experimental Design
+
+- Results
+
+- Interpretation of Results
+  
+### USER INTERFACE
+#### Constraint 1 - 
+- Experimental Design
+
+- Results
+
+- Interpretation of Results
+  
+#### Constraint 2 -
+- Experimental Design
+
+- Results
+
+- Interpretation of Results
+  
+#### Constraint 3 -
+- Experimental Design
+
+- Results
+
+- Interpretation of Results
+  
+#### Constraint 4 -
+- Experimental Design
+
+- Results
+
+- Interpretation of Results
+  
+#### Constraint 5 -
+- Experimental Design
+
+- Results
+
+- Interpretation of Results
+  
+#### Constraint 6 -
+- Experimental Design
+
+- Results
+
+- Interpretation of Results
+  
+### VOICE ACTIVITY DETECTION
+#### Constraint 1 - 
+- Experimental Design
+
+- Results
+
+- Interpretation of Results
+  
+#### Constraint 2 -
+- Experimental Design
+
+- Results
+
+- Interpretation of Results
+  
+#### Constraint 3 -
+- Experimental Design
+
+- Results
+
+- Interpretation of Results
+  
+#### Constraint 4 -
+- Experimental Design
+
+- Results
+
+- Interpretation of Results
+  
+#### Constraint 5 -
+- Experimental Design
+
+- Results
+
+- Interpretation of Results
+  
+#### Constraint 6 -
+- Experimental Design
+
+- Results
+
+- Interpretation of Results
+  
+#### Constraint 7 -
+- Experimental Design
+
+- Results
+
+- Interpretation of Results
+  
+#### Constraint 8 -
+- Experimental Design
+
+- Results
+
+- Interpretation of Results
+  
+### COMPUTING
+#### Constraint 1 - 
+- Experimental Design
+
+- Results
+
+- Interpretation of Results
+  
+#### Constraint 2 -
+- Experimental Design
+
+- Results
+
+- Interpretation of Results
+  
+#### Constraint 3 -
+- Experimental Design
+
+- Results
+
+- Interpretation of Results
+  
+
