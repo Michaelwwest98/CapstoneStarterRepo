@@ -1,7 +1,9 @@
 # Experimental Analysis Report
 
 ## Introduction
-
+The following report details the expriments, results, and interpretation of results. It is important to note all constraints ar ementioned, 
+but not all where impleemnts or ended up being proven. Due to time limitations some experiemnts also weren't physically recorded, but an analysis
+of the results is till done through other methods. All constraints are separated by the subsystem and then further expanded upon throughout the report.
 ## Specifications and Constraints
 
 ### Constraints Table
