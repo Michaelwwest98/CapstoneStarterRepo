@@ -199,18 +199,22 @@ To test if system is capable of sensning the bpm necessary for heartbeat detetio
 ### USER INTERFACE
 #### Constraint 1 - Must display whether the victim is in the Expectant, Immediate, or Delayed category with appropriate associated color
 - Experimental Design  
-  Test system multiple times and take note of reults if all three traige appear and if color matches properly.
+  Test system multiple times and take note of reults if all three traige staes appear and if color matches properly.
 - Results  
-
-- Interpretation of Results
-  
-#### Constraint 2 -
-- Experimental Design
-
-- Results
-
-- Interpretation of Results
-  
+![image](https://github.com/Michaelwwest98/DARPA-Drone-Triage-Sensing-System/assets/79685126/13188982-e9a5-43c0-ba72-4eee3071fadf)
+![image](https://github.com/Michaelwwest98/DARPA-Drone-Triage-Sensing-System/assets/79685126/aa585897-610c-449e-bc5d-e217b951a395)
+Third Delayed not pictured, but fucntional 
+- Interpretation of Results  
+  All three appear on the UI interface, but color is not present and needs to be added. 
+#### Constraint 2 - The system must provide triage results in less than 1 minute
+- Experimental Design  
+  Record time it takes from starting system till reult is displayed over a course of multiple trials, to see if less than 1 minute.
+- Results  
+  Did not keep record of how long system ran for 
+- Interpretation of Results  
+  Although physcial time not kept, since the system takes 31 seconds to collect the heartbeat, respiratory, and voicy activity data, the user interface
+  system is able to successfully display the triage results in less than one minute.
+ 
 #### Constraint 3 -
 - Experimental Design
 
