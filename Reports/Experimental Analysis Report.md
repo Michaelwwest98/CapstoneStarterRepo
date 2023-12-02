@@ -252,56 +252,58 @@ To test if system is capable of sensning the bpm necessary for heartbeat detetio
   
 ### VOICE ACTIVITY DETECTION
 
-#### Constraint 1 - 
+#### Constraint 1 - Must detect the presence of a human voice from audio signal
+- Experimental Design  
+  Run trials of audio signals with and without human voice recording the accuaracy of human voice detection.
+- Results  
+  Did not physically record results
+- Interpretation of Results  
+  Although reults were not physucally recorded, during test runs. an audio of random animal sounds were put next to microphone and system did not detect human voice.
+  This of course needs to be tested more with physical trials to get better reults on the accruacy of system. 
+#### Constraint 2 - Must pick up a minimum sound pressure level of 30 dB SPL from at least 1 meter away
+- Experimental Design  
+  Run trials of whispering sounds under radar stand and comput how many times system detcets an indivual person's whisper.
+- Results  
+  Did not complete experiemnt
+- Interpretation of Results  
+  This test was not completing due to lack of time, but while testing a similar test was conducted with not promising results. This system needs to furhter be
+  tested to see if algorithm or microphone is the issue to lack of voice sensitivity observed.
+#### Constraint 3 - Must sense frequencies from 100 Hz to 3000 Hz
+- Experimental Design  
+  Use either a FFT or Power density fucntion to see if values between this randge are able to be detected
+- Results  
+  
+- Interpretation of Results  
+  
+#### Constraint 4 - Must output sound at a volume heard from at least 1 meter away
 - Experimental Design
 
 - Results
 
 - Interpretation of Results
   
-#### Constraint 2 -
+#### Constraint 5 - Must play sound clips between 20 Hz- 20000 Hz
 - Experimental Design
 
 - Results
 
 - Interpretation of Results
   
-#### Constraint 3 -
+#### Constraint 6 - Must function with noise from drone from at least 1 meter away
 - Experimental Design
 
 - Results
 
 - Interpretation of Results
   
-#### Constraint 4 -
+#### Constraint 7 - The entire subsystem shall weigh less than 1.2 pounds
 - Experimental Design
 
 - Results
 
 - Interpretation of Results
   
-#### Constraint 5 -
-- Experimental Design
-
-- Results
-
-- Interpretation of Results
-  
-#### Constraint 6 -
-- Experimental Design
-
-- Results
-
-- Interpretation of Results
-  
-#### Constraint 7 -
-- Experimental Design
-
-- Results
-
-- Interpretation of Results
-  
-#### Constraint 8 -
+#### Constraint 8 - Speaker output must not be louder than 120 dB
 - Experimental Design
 
 - Results
