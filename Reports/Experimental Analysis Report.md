@@ -49,7 +49,7 @@
 | 7 | The entire subsystem shall weigh less than 1.2 pounds | N/A |
 | 8 | Speaker output must not be louder than 120 dB | N/A |
 | -- | **COMPUTING** | N/A |
-| 1 | Must calculate results of triage algorithm and display wirelessly in under 2 seconds | N/A |
+| 1 | Must calculate results of triage algorithm and display wirelessly in under 2 seconds | already mentioned in wireless subsystem |
 | 2 | Must not store any audio recordings of victims in distress | N/A |
 | 3 | Must weigh below 1.2 lbs | N/A |
 
@@ -314,25 +314,19 @@ To test if system is capable of sensning the bpm necessary for heartbeat detetio
 - Interpretation of Results  
   Speaker system did not work so loudness of the speaker could not be tested on the system. But volume s contorlled so it can be many different vlaues.  
 ### COMPUTING
-#### Constraint 1 - 
-- Experimental Design
-
-- Results
-
-- Interpretation of Results
   
-#### Constraint 2 -
-- Experimental Design
-
-- Results
-
-- Interpretation of Results
-  
-#### Constraint 3 -
-- Experimental Design
-
-- Results
-
-- Interpretation of Results
-  
+#### Constraint 2 - Must not store any audio recordings of victims in distress
+- Experimental Design  
+  N/A
+- Results  
+  N/A
+- Interpretation of Results  
+  No storage of audio signal encoded in the system
+#### Constraint 3 - Must weigh below 1.2 lbs
+- Experimental Design  
+  Weigh physical computing subsystem
+- Results  
+  No phycical measurment
+- Interpretation of Results  
+  Once again no measuremnt was taken, but the switch to the raspberry pi also meant a lowering of the overall subsystem weight. 
 
