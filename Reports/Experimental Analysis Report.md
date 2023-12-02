@@ -22,7 +22,7 @@
 | 2 | The power source for our system must be portable, and replaceable or rechargeable | N/A |
 | 3 | The power system can weigh a max of 1.5 lbs | N/A |
 | 4 | The Jetson Nano must maintain a supply voltage greater than or equal to 4.75 V via a 2.1 mm DC barrel jack. The input voltage ripple should be below 220 mV peak to peak. The Jetson Nano has a maximum voltage rating of 5.5 V and a maximum current rating of 5 A. The power rating for the Jetson nano is 27.5 W. The Nano consumes approximately 1.25 W at 4 A with no peripherals |  The Raspberry Pi 4 B requires a nominal input voltage of 5 V via USB type C connector. The input voltage ripple should be below 220 mV peak to peak. The Raspberry Pi 4 Model B has a maximum voltage rating of 6 V and a maximum current rating of 3 A. The Raspberry Pi 4 Model B consumes approximately 2.7 W at 240 mA with no peripherals. |
-| 5 | The system must effectively supply 1.1250 A at 5 V for a total power of 5.625 W to the Jetson and its peripherals via the 12 V out of the battery adapter plate, and it must supply max 60 mW from 7.4 V out of the adapter plate for a total of 5.685 W | N/A |
+| 5 | The system must effectively supply 1.1250 A at 5 V for a total power of 5.625 W to the Jetson and its peripherals via the 12 V out of the battery adapter plate, and it must supply max 60 mW from 7.4 V out of the adapter plate for a total of 5.685 W | Changed to Raspberry Pi for computing system |
 |6 | The op amp circuit requires +/- 5 V. The maximum input voltage is +/- 15 V, and the maximum power consumption is going to be from 8 to 60 mW | Ampflier not used for this iteration of system, hopefully it can be implemented in future |
 | -- | **WIRELESS COMMUNCATION** | -- |
 | 1 | The maximum distance the sensing system can be away from the command center is 9 kilometers | N/A |
@@ -57,113 +57,86 @@
 
 ### RESPIRATORY/HEARTBEAT
 #### Constraint 1 - Must sense Beats per minute from 30 to 210 bpm
-- Experimental Design
+- Experimental Design  
 To test if system is capable of sensning the bpm necessary for heartbeat detetion, a live person can be placed under radar while system is running
 , once FFT is recieved looking if there is any data between 0.5 Hz and 3.5 Hz that is not present when system is tested without a person shows the system is caable of detecting such frequnecies. 
-- Results
+- Results  
 ![image](https://github.com/Michaelwwest98/DARPA-Drone-Triage-Sensing-System/assets/79685126/51a7825d-9967-4bb8-bc15-e55e333279c3)
-- Interpretation of Results
+- Interpretation of Results  
   The results showed everytime an indidual was placed under, if system was operating properly with no errors, there would be a change between the
   frequcnies listed above. This doesn't necessarily mean that the correct values are present, but it for sure proves that the system is indeed capable of retieving frequenices that low.
   A 30 second window is also used sampling at over 100 Hz so emeprically the system should also be capale of looking at sch low frequenices. But looking at the plots
   shows that practically this is the case too.
 
 #### Constraint 2 -  Must sense breaths per minute from 1 to 70 bpm
-- Experimental Design
+- Experimental Design  
   Refer to constraint 1
-- Results
+- Results  
   Refer to constraint 1
-- Interpretation of Results
+- Interpretation of Results  
   There is an overlap in freuqnices for breath rate and heart rate, meaning if system is capable of measring up to 3.5 Hz as mentioned above,
   it is also capable of measuring 0.017 to 1.17 Hz
 #### Constraint 3 - Must detect and measure heartbeat and breath rate from at least 1 meter away
-- Experimental Design
+- Experimental Design  
   Building a test stand a meter away and comparing result given by system with physically counting amount breaths and the amount of beats in 30 seconds and calculating
   both bpms that way.
-- Results
+- Results  
 ![image](https://github.com/Michaelwwest98/DARPA-Drone-Triage-Sensing-System/assets/79685126/b187a445-4f80-49a0-adde-cfbeacdd2a8a)
-- Interpretation of Results
+- Interpretation of Results  
   The reults show how accurate the system is in 10 trials. The percent errors are given bottom right. It is important to note that all measurments are taken at ideal conditions.
   This means that when the idnivudal has a normal resting bpm the system is pretty accurate. More teting needs to be done in harsher condiitons to see accruacy in more real world conditions.
   This will allow furhter testing of peak detection algorithm accruacy. 
 #### Constraint 4 - Entire system must weigh less than 6 pounds, this subsystem should weight 1.5 lbs or less
-- Experimental Design
+- Experimental Design  
   Weighing the items to get actual weight of entire subsstem
-- Results
+- Results  
   System was not physically weighed
-- Interpretation of Results
+- Interpretation of Results  
   ALthough the hysical weight of system was not found just by size of the radar it is clear that it probably weighs less than 1.5 lbs. But system should stilll be weighed.
 #### Constraint 5 - Radar must not emit at a frequency over 10 GHz with a power density of 1000 W/m^2 in order to keep the radar skin and eye safe
-- Experimental Design
+- Experimental Design  
   Calculate the power density of beam by creating a phycial araea where the system functions and dividning it by the power emmited by system.
-- Results
+- Results  
   Did not execute this test
-- Interpretation of Results
+- Interpretation of Results  
   Due to lack of time this test was not executed, but the output power of system is in miliwatts so dividing it by any area will
   give you something less than 100 W/m^2. Still the test should be executed to confirm this result
 
   
 ### POWER
 
-#### Constraint 1 - 
-- Experimental Design
-  - To operate from 15 to 60 minutes a 2600 mAh Li-ion battery pack is used to power the computing system and all peripherals by estimating using worst case scenarios/max values.
+#### Constraint 1 - The system must operate at full functionality for 15 to 60 minutes
+- Experimental Design  
+  Test system while running and only power by battery and check if it is able to stay turned on for more than 15-60 minutes.
+- Results  
+  The battery was able to power the Raspberry Pi for 2 hours without any negative effects to the system, during the demo session at capstone presentation.
+- Interpretation of Results  
+  The system is most definitely not operating at worst case, but is 100% able to operate for the mandated time period. Fulling uunning the system powered only by battery resulted in it perating within window.
+  Furhter testing can be done on different condiitons of operation.
+    
+#### Constraint 2 - The power source for our system must be portable, and replaceable or rechargeable
+- Experimental Design  
+  For the power system to be portable and replaceable or recharagable, a rechargable battery pack with an adapter plate designed for small hand-held cameras was chosen.
+- Results  
+  The battery and battery adapter plate mounts easily to our test stand and the battery charges easily with a supplied wall charger.
+- Interpretation of Results  
+  The power system is portable and rechargable.
+    
+#### Constraint 3 - The power system can weigh a max of 1.5 lbs
+- Experimental Design  
+  Weigh the physical Battery system. 
+- Results  
+  The power system came out to weigh just under 0.5 lbs.
+- Interpretation of Results  
+  The weight requirement was met for the power subsystem.
+#### Constraint 4 - Refer to Table
+- Experimental Design  
+  To supply the appropriate voltage and current levels as well as input voltage ripple for the Raspberry Pi and the peripherals, a buck converter/voltage regulator was used along with the battery. The system can be tested by simply meauring the ripple voltage 
+- Results  
+  No load voltage ripple on the output of the buck converter/regulator was measure to be 30 mV peak to peak. The voltage seen by the Raspberry Pi is 5 V, and the regulator can supply up to 20 W.
+- Interpretation of Results  
+  The power system is able to effectively power the computing system and all peripherals.
   
-- Results
-  - The battery was able to power the Raspberry Pi for 2 hours without any negative effects to the system.
-    
-- Interpretation of Results
-  - The system is most definitely not operating at worst case, but is 100% able to operate for the mandated time period.
-    
-#### Constraint 2 -
-- Experimental Design
-  - For the power system to be portable and replaceable or recharagable, a rechargable battery pack with an adapter plate designed for small hand-held cameras was chosen.
-    
-- Results
-  - The battery and battery adapter plate mounts easily to our test stand and the battery charges easily with a supplied wall charger.
-    
-- Interpretation of Results
-  - The power system is portable and rechargable.
-    
-#### Constraint 3 -
-- Experimental Design
-  - In order to stay below the weight requirement of 1.5 pounds, a battery system was chosen that was indeed light weight as it is designed to be mounted on a portable camera.
-    
-- Results
-  - The power system came out to weigh just under 0.5 lbs.
-    
-- Interpretation of Results
-  - The weight requirement was met for the power subsystem.
-    
-#### Constraint 4 -
-- Experimental Design
-  - To supply the appropriate voltage and current levels as well as input voltage ripple for the Raspberry Pi and the peripherals, a buck converter/voltage regulator was used along with the battery.
-    
-- Results
-  - No load voltage ripple on the output of the buck converter/regulator was measure to be 30 mV peak to peak. The voltage seen by the Raspberry Pi is 5 V, and the regulator can supply up to 20 W.
-    
-- Interpretation of Results
-  - The power system is able to effectively power the computing system and all peripherals.
-  
-#### Constraint 5 -
-- Experimental Design
-  - To supply the appropriate voltage and current levels as well as input voltage ripple for the Raspberry Pi and the peripherals, a buck converter/voltage regulator was used along with the battery.
-    
-- Results
-  - The voltage regulator is outputting 5 V which is seen by the Raspberry Pi, and the regulator can supply up to 20 W.
-    
-- Interpretation of Results
-  - The power system is able to effectively power the computing system and all peripherals.
-    
-#### Constraint 6 -
-- Experimental Design
-  - The battery adapter plate has a built-in boost converter and an additional output terminal of 12 V. This output terminal would be used to power the op-amp circuit via a secondary regulator/buck-boost converter that has both positive and negative output rails.
-    
-- Results
-  - Time did not permit for this device to be tested.
-    
-- Interpretation of Results
-  - N/A
 
 ### WIRELESS COMMUNICATION
 #### Constraint 1 - 
