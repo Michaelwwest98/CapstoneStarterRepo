@@ -197,10 +197,10 @@ To test if system is capable of sensning the bpm necessary for heartbeat detetio
 
   
 ### USER INTERFACE
-#### Constraint 1 - 
-- Experimental Design
-
-- Results
+#### Constraint 1 - Must display whether the victim is in the Expectant, Immediate, or Delayed category with appropriate associated color
+- Experimental Design  
+  Test system multiple times and take note of reults if all three traige appear and if color matches properly.
+- Results  
 
 - Interpretation of Results
   
